@@ -22,5 +22,5 @@ CREATE TABLE SSR_Tracker (
     action_after varchar(255),
     start_time varchar(255),
     end_time varchar(255),
-    Description longtext
+    perform longtext
 );

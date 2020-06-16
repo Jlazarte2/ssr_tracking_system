@@ -1,4 +1,4 @@
-
+CREATE DATABASE ssr_database;
 CREATE TABLE ssr_database.SSR_Tracker (
     DXC_SSR varchar(255),
     Date varchar(255),
@@ -25,4 +25,8 @@ CREATE TABLE ssr_database.SSR_Tracker (
     end_time varchar(255),
     Description longtext
 );
-
+CREATE TABLE SSR_Accounts (
+    Employee_ID varchar(255),
+    Password varchar(255),
+    Type varchar(255)
+    );

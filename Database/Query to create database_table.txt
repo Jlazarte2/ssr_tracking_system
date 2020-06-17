@@ -1,4 +1,7 @@
+#Create DATABASE
 CREATE DATABASE ssr_database;
+
+#Create TABLE
 CREATE TABLE ssr_database.ssr_tracker (
     dxc_ssr varchar(255),
     date varchar(255),
@@ -30,3 +33,35 @@ CREATE TABLE ssr_database.ssr_accounts (
     password varchar(255),
     type varchar(255)
     );
+#Insert sample data into tables
+INSERT INTO ssr_database.ssr_tracker VALUES (
+    "dxcssr0001",
+    "10/10/2020",
+    "RITM0001",
+    "Ownerno1",
+    "implementer1",
+    "10/11/2020",
+    "no change required",
+    "CHG00001",
+    "10/11/2020",
+    "prior",
+    "Wintel",
+    "Wintel",
+    "wintel@gmail.com",
+    "priority",
+    "10/11/2020",
+    "10/11/2020",
+    "20",
+    "remarks",
+    "description",
+    "yes",
+    "none",
+    "10:00:00",
+    "11:00:00",
+    "PERFORM"
+);
+INSERT INTO ssr_database.ssr_accounts VALUES (
+    "admin",
+    "admin",
+    "admin"
+);

@@ -1,32 +1,32 @@
 CREATE DATABASE ssr_database;
-CREATE TABLE ssr_database.SSR_Tracker (
-    DXC_SSR varchar(255),
-    Date varchar(255),
-    Usyd_No varchar(255),
-    SSR_Owner varchar(255),
-    SRE_Name varchar(255),
-    Exec_Date varchar(255),
-    Status varchar(255),
-    Change_No varchar(255),
-    Change_Created varchar(255),
-    Prior varchar(255),
-    Usyd_Cat varchar(255),
-    DXC_Cat varchar(255),
-    DXC_Contact varchar(255),
-    Priority varchar(255),
-    Dateof_Exec varchar(255),
-    Dateof_Completion varchar(255),
-    Age varchar(255),
-    Remarks varchar(255),
-    Description varchar(255),
-    Applicable varchar(255),
+CREATE TABLE ssr_database.ssr_tracker (
+    dxc_ssr varchar(255),
+    date varchar(255),
+    usyd_no varchar(255),
+    ssr_owner varchar(255),
+    sre_name varchar(255),
+    exec_date varchar(255),
+    status varchar(255),
+    change_no varchar(255),
+    change_created varchar(255),
+    prior varchar(255),
+    usyd_cat varchar(255),
+    dxc_cat varchar(255),
+    dxc_contact varchar(255),
+    priority varchar(255),
+    dateof_exec varchar(255),
+    dateof_completion varchar(255),
+    age varchar(255),
+    remarks varchar(255),
+    description varchar(255),
+    applicable varchar(255),
     action_after varchar(255),
     start_time varchar(255),
     end_time varchar(255),
-    Description longtext
+    perform longtext
 );
-CREATE TABLE SSR_Accounts (
-    Employee_ID varchar(255),
-    Password varchar(255),
-    Type varchar(255)
+CREATE TABLE ssr_database.ssr_accounts (
+    employee_id varchar(255),
+    password varchar(255),
+    type varchar(255)
     );

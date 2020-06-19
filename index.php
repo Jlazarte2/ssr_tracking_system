@@ -1,0 +1,34 @@
+<?php
+include ("connections.php");
+
+$check_employee = mysqli_query($connections, "SELECT * FROM ssr_accounts WHERE employee_id= '" . $_POST["user"] . "';");
+$check_employee_row = mysqli_num_rows($check_employee);
+
+if($check_employee_row > 0){
+    while($row = mysqli_fetch_assoc($check_employee)){
+        $db_password = $row["password"];
+        $db_type = $row["type"];
+        
+
+            if($_POST["password"] == $db_password){
+                if($db_type == "admin"){
+                    echo "<script>
+                window.location.href='./adminpage.html';
+                </script>";
+                }
+                else{
+                    echo "<script>
+                    window.location.href='./customerpage.html';
+                    </script>"; 
+                }
+            }
+    }
+}
+else{
+    $password_error = "Incorrect Username/Password!";
+                echo "<script>
+                alert('Incorrect Username/Password!');
+                window.location.href='./index.html';
+                </script>";
+}
+?>

@@ -65,3 +65,8 @@ INSERT INTO ssr_database.ssr_accounts VALUES (
     "admin",
     "admin"
 );
+INSERT INTO ssr_database.ssr_accounts VALUES (
+    "user",
+    "user",
+    "user"
+);

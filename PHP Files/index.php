@@ -1,6 +1,6 @@
 <?php
     $employee_id = "";
-    $password = "";
+    $log_password = "";
     $employee_id_error = "";
     $password_error = "";
 
@@ -14,10 +14,13 @@
         if(empty($_POST["password"])){
             $password_error = "Password is required!";
         }else{
-            $password = $_POST["password"];
+            $log_password = $_POST["password"];
         }
 
-        if($employee_id && $password){
+        
+
+
+        if($employee_id && $log_password){
             include ("connections.php");
 
             $check_employee = mysqli_query($connections, "SELECT * FROM ssr_accounts WHERE employee_id='$employee_id'");
@@ -28,14 +31,17 @@
                     $db_password = $row["password"];
                     $db_type = $row["type"];
                     
-                    echo $password;
-                    echo $db_password;
 
-                        if($password != $db_password){
-                            $password_error = "Password is incorrect!";
+                    echo $log_password;
+                    echo"<br>";
+                    echo $db_password;
+                    
+
+                        if($log_password == $db_password){
+                            $password_error = "Password is correct!";
                             
                         }else{
-                            $password_error = "Password is correct!";
+                            $password_error = "Password is incorrect!";
                         }
                 }
             }else{
@@ -50,7 +56,7 @@
     <input type="text" name="employee_id" value="<?php echo $employee_id; ?>"> <br>
     <span class="error"><?php echo $employee_id_error; ?></span> <br>
 
-    <input type="text" name="password" value="<?php echo $password; ?>"> <br>
+    <input type="text" name="password" value="<?php echo $log_password; ?>"> <br>
     <span class="error"><?php echo $password_error; ?></span> <br>
 
     <input type="submit" value="Login">

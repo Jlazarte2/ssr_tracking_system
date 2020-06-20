@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Request</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/searchrequest.css">
+</head>
+
+<body>
+    <div id="colorstrip"></div>
+    <div id="navigation"> 
+        <div><img class="logo1" src="images/logo1.png" alt="Usyd logo"></div>
+        <div class="titlediv">
+            <h1 class="title">SEARCH REQUEST</h1>
+        </div>
+    </div>
+    <div class="form">
+        <form>
+            <label for="Sdxcssr_no">Search DXC SSR No.</label>
+            <input type="text" id="Sdxcssr_no" name="Sdxcssr_no"><br><br>
+        
+            <button type="button" id="search">Search</button>
+            <button type="button" id="clear">Clear</button><br><br>
+        
+            <div class="container">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>DXCSSR No.</th>
+                            <th>USYD Reference No.</th>
+                            <th>Usyd Category</th>
+                            <th>DXC Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>DXCSSR00529</td>
+                            <td>RITM0201579</td>
+                            <td>Wintel</td>
+                            <td>Wintel</td>
+                        </tr>
+                        <tr>
+                            <td>DXCSSR00529</td>
+                            <td>RITM0201579</td>
+                            <td>Wintel</td>
+                            <td>Wintel</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><br>
+            <button type="button" id="back" onclick="goBack()">back</button>
+        </form>
+    </div>
+
+    <script>
+        function goBack() {
+            history.back();
+        }
+    </script>
+
+</body>
+</html>
+

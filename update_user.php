@@ -1,11 +1,19 @@
 <?php
 include ("connections.php");
 
-$sql = "UPDATE ssr_accounts SET password='" . $_POST["password"] . "' AND type='" . $_POST["type"] . "'  WHERE employee_id='" . $_POST["user_id"] . "'";
+$sql = "UPDATE ssr_accounts SET password='" . $_POST["password"] . "' ,type='" . $_POST["type"] . "' 
+        WHERE employee_id='" . $_POST["user_id"] . "';";
 if ($connections->query($sql) === TRUE) {
-    echo "User has been updated!";
+      echo "<script>
+    alert('User has been updated!');
+    window.location.href='./modify_user.php';
+    </script>";
 }
 else {
-echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "<script>
+    alert('Error updating user');
+    window.location.href='./modify_user.php';
+    </script>";
+#echo "Error: " . $sql . "<br>" . $conn->error;
 }
 ?> 

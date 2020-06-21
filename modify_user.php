@@ -63,18 +63,16 @@
             </table>
         </div><br>
     </form>
-<form method="post" action="update_user.php">
-    <form method="post" action="create_user.php">
+    <form method="post">
         <label for="user_id">User ID:</label>
         <input type="text" id="user_id" name="user_id">
         <label for="password">Password:</label>
         <input type="text" id="password" name="password">
         <label for="type">Type:</label>
         <input type="text" id="type" name="type"><br>
-        <button type="submit" id="create_user" id="create_user">Create User</button>
-        <button type="submit" id="update" id="update">Update</button><br>
+        <button type="submit" id="create_user" id="create_user" formaction="create_user.php">Create User</button>
+        <button type="submit" id="update" id="update" formaction="update_user.php">Update</button><br>
     </form>
-</form>
     <button type="button" id="back" onclick="goBack()">back</button>
 </div>
 

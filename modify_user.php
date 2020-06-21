@@ -1,3 +1,12 @@
+<?php
+    include ("connections.php");
+
+    $view_query = mysqli_query($connections, "SELECT * FROM ssr_accounts");
+
+    
+    echo "</table>";
+?>
+
 <html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,35 +40,42 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>User_ID</th>
+                        <th>Username</th>
                         <th>Password</th>
                         <th>User_Type</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>admin</td>
-                        <td>admin</td>
-                        <td>admin</td>
-                    </tr>
-                    <tr>
-                        <td>user</td>
-                        <td>user</td>
-                        <td>customer</td>
-                    </tr>
+                    <?php
+                        while($row = mysqli_fetch_assoc($view_query)){
+                            $employee_id = $row["employee_id"];
+                            $password = $row["password"];
+                            $type = $row["type"];
+                    
+                            echo "<tr>
+                                    <td>$employee_id</td>
+                                    <td>$password</td>
+                                    <td>$type</td>
+                                </tr>";
+                        }
+                    ?>
                 </tbody>
             </table>
         </div><br>
+    </form>
+<form method="post" action="update_user.php">
+    <form method="post" action="create_user.php">
         <label for="user_id">User ID:</label>
         <input type="text" id="user_id" name="user_id">
         <label for="password">Password:</label>
         <input type="text" id="password" name="password">
         <label for="type">Type:</label>
         <input type="text" id="type" name="type"><br>
-        <button type="button" id="create_user">Create User</button>
-        <button type="button" id="upadte">Update</button><br>
-        <button type="button" id="back" onclick="goBack()">back</button>
+        <button type="submit" id="create_user" id="create_user">Create User</button>
+        <button type="submit" id="update" id="update">Update</button><br>
     </form>
+</form>
+    <button type="button" id="back" onclick="goBack()">back</button>
 </div>
 
 <script>

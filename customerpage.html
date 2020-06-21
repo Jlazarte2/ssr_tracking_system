@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Customer Page</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Open+Sans|Francois+One:400,700" >
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/customerpage.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="css/adminpage.css">
 
 </head>
+
 <body>
     <div id="colorstrip"></div>
-    <div class="form">
-        <form>
-            <h1 class="title">SSR Request Details</h1><br>
-            <button type="submit" id="newrequest" formaction="./new_request.html">Create New Request</button><br>
-            <button type="submit" id="modifyrequest" formaction="./modify_request.html">View/Search Request</button><br>
-            <button type="submit" id="logout" formaction="./Login.html">Logout</button>
-        </form>
+    <div id="navigation">
+        <div><img class="logo1" src="images/logo1.png" alt="Usyd logo"></div>
+        <div class="navbar">
+            <a href="./new_request.html">Create New Request</a>
+            <a href="./viewrecords.php">View/Search Request</a>
+            <a href="./index.html">Logout</a>
+        </div>
+    </div>
+    <div>
+        <img class="usyd2" src="images/usyd2.jpg" alt="Usyd logo">
     </div>
 </body>
-</html>                            
+
+</html>

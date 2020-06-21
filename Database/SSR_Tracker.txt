@@ -1,0 +1,26 @@
+<DATABASE>
+Table: SSR_Tracker
+Columns:
+DXC_SSR
+Date
+Usyd_No
+SSR_Owner
+SRE_Name
+Exec_Date
+Status
+Change_No
+Change_Created
+Prior
+Usyd_Cat
+DXC_Cat
+DXC_Contact
+Priority
+Dateof_Exec
+Dateof_Completion
+Age
+Remarks
+Description
+
+
+
+

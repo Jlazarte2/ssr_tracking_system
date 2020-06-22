@@ -1,53 +1,76 @@
 <?php
     include ("connections.php");
 
-    $view_query = mysqli_query($connections, "SELECT * FROM ssr_accounts");
+    if (isset($_GET["search"])){
+        $check = $_GET["search"];
 
-    
-    echo "</table>";
+        $terms = explode(" ", $check);
+        $q = "SELECT * FROM ssr_accounts WHERE ";
+        $i = 0;
+
+    foreach($terms as $each){
+            $i++;
+            if($i==1){
+                $q .= "employee_id LIKE '%$each%' ";
+            }
+            else{
+                $q .= "OR employee_id LIKE '%$each%' ";
+            }
+        }
+
+        $query = mysqli_query($connections, $q);
+    }
+    else{
+        $check = "";
+        $query = mysqli_query($connections, "SELECT * FROM ssr_accounts");
+    }
+
 ?>
 
-<html>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/modifyuser.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<style>
-    table,
-    th,
-    td {
-        border: 1px solid black;
-    }
-    
-    th,
-    td {
-        padding: 10px;
-    }
-</style>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add/Modify User</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/modifyuser.css">
+</head>
 
-<div id="colorstrip"></div>
+<body>
+    <div id="colorstrip"></div>
+    <div id="navigation"> 
+        <div><img class="logo1" src="images/logo1.png" alt="Usyd logo"></div>
+        <div class="titlediv">
+            <h1 class="title">ADD/MODIFY USER</h1>
+        </div>
+    </div>
 <div class="form">
     <form>
-        <h1>Add/Change Users</h1><br>
-        <label for="Suser_id">Search User ID:</label>
-        <input type="text" id="Suser_id" name="Suser_id">
-        <button type="button" id="search">Search</button>
-    
+        <form method="GET" action="modify_user.php">
+            <label for="Sdxcssr_no">Search User ID</label>
+            <input type="text" id="Sdxcssr_no" name="search" value="<?php echo $check; ?>" required>
+            <input type="submit" value="search">
+        </form>
+        <form method="post" action="modify_user.php">
+            <input type="submit" name="clear" value="Clear">
+        </form>
+        <button type="button" id="back" onclick="goBack()">back</button><br><br>
+        
         <div class="container">
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Username</th>
+                        <th>User_ID</th>
                         <th>Password</th>
                         <th>User_Type</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                        while($row = mysqli_fetch_assoc($view_query)){
+                        while($row = mysqli_fetch_assoc($query)){
                             $employee_id = $row["employee_id"];
                             $password = $row["password"];
                             $type = $row["type"];
@@ -75,7 +98,7 @@
     </form>
     <button type="button" id="back" onclick="goBack()">back</button>
 </div>
-
+</body>
 <script>
     function goBack() {
         history.back();

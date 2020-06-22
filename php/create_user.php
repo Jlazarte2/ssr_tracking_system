@@ -6,13 +6,13 @@ include ("connections.php");
   if ($connections->query($sql) === TRUE) {
       echo "<script>
     alert('New user created successfully!');
-    window.location.href='./modify_user.php';
+    window.location.href='../modifyuser.php';
     </script>";
   } 
   else {
       echo "<script>
     alert('Error creating user');
-    window.location.href='./modify_user.php';
+    window.location.href='../modifyuser.php';
     </script>";
     #echo "Error: " . $sql . "<br>" . $conn->error;
   }

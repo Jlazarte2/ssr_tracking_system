@@ -6,13 +6,13 @@ $sql = "UPDATE ssr_accounts SET password='" . $_POST["password"] . "' ,type='" .
 if ($connections->query($sql) === TRUE) {
       echo "<script>
     alert('User has been updated!');
-    window.location.href='./modify_user.php';
+    window.location.href='../modifyuser.php';
     </script>";
 }
 else {
     echo "<script>
     alert('Error updating user');
-    window.location.href='./modify_user.php';
+    window.location.href='../modifyuser.php';
     </script>";
 #echo "Error: " . $sql . "<br>" . $conn->error;
 }

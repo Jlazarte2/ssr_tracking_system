@@ -1,5 +1,5 @@
 <?php
-    include ("connections.php");
+    include ("./connections.php");
     $usyd_no = $ssr_owner = $sre_name = $exec_date = $prior = $priority = $usyd_cat = $description = "";
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -37,7 +37,7 @@
             VALUES ('$usyd_no','$ssr_owner','$sre_name','$exec_date','$priority','$usyd_cat','$description')");
             echo "<script>
             alert('New Request has been created!');
-            window.location.href='./new_request.html';
+            window.location.href='../newrequest.html';
             </script>"; 
         }
 

@@ -1,5 +1,5 @@
 <?php
-    include ("connections.php");
+    include ("./php/connections.php");
     if (isset($_GET["search"])){
             $check = $_GET["search"];
 
@@ -48,12 +48,12 @@
     </div>
     <div class="form">
         <form>
-            <form method="GET" action="viewrecords.php">
+            <form method="GET" action="searchrequest.php">
                 <label for="Sdxcssr_no">Search RITM No.</label>
                 <input type="text" id="Sdxcssr_no" name="search" value="<?php echo $check; ?>" required>
                 <input type="submit" value="search">
             </form>
-            <form method="post" action="viewrecords.php">
+            <form method="post" action="searchrequest.php">
                 <input type="submit" name="clear" value="Clear">
             </form>
             <button type="button" id="back" onclick="goBack()">back</button><br><br>

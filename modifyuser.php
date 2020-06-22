@@ -1,5 +1,5 @@
 <?php
-    include ("connections.php");
+    include ("./php/connections.php");
 
     if (isset($_GET["search"])){
         $check = $_GET["search"];
@@ -49,12 +49,12 @@
     </div>
 <div class="form">
     <form>
-        <form method="GET" action="modify_user.php">
+        <form method="GET" action="modifyuser.php">
             <label for="Sdxcssr_no">Search User ID</label>
             <input type="text" id="Sdxcssr_no" name="search" value="<?php echo $check; ?>" required>
             <input type="submit" value="search">
         </form>
-        <form method="post" action="modify_user.php">
+        <form method="post" action="modifyuser.php">
             <input type="submit" name="clear" value="Clear">
         </form>
         <button type="button" id="back" onclick="goBack()">back</button><br><br>
@@ -93,8 +93,8 @@
         <input type="text" id="password" name="password">
         <label for="type">Type:</label>
         <input type="text" id="type" name="type"><br>
-        <button type="submit" id="create_user" id="create_user" formaction="create_user.php">Create User</button>
-        <button type="submit" id="update" id="update" formaction="update_user.php">Update</button><br>
+        <button type="submit" id="create_user" id="create_user" formaction="./php/create_user.php">Create User</button>
+        <button type="submit" id="update" id="update" formaction="./php/update_user.php">Update</button><br>
     </form>
     <button type="button" id="back" onclick="goBack()">back</button>
 </div>

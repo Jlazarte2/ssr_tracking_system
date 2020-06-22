@@ -61,11 +61,11 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <td>Date Received</td>
-                            <td>DXC SSR No</td>
-                            <td>Usyd No</td>
-                            <td>SSR Owner</td>
-                            <td>SRE Name</td>
+                            <th>Date Received</th>
+                            <th>DXC SSR No</th>
+                            <th>Usyd No</th>
+                            <th>SSR Owner</th>
+                            <th>SRE Name</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -61,6 +61,7 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th>Open Request</th>
                             <th>Date Received</th>
                             <th>DXC SSR No</th>
                             <th>Usyd No</th>
@@ -79,6 +80,7 @@
                         $db_sre_name = $row["sre_name"];
 
                             echo "<tr>
+                                <td><a href='openrequest.php?dxcssr=$db_usyd_no'>Open</a></td>
                                 <td>$db_date</td>
                                 <td>$db_dxc_ssr</td>
                                 <td>$db_usyd_no</td>

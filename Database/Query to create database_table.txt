@@ -33,6 +33,12 @@ CREATE TABLE ssr_database.ssr_accounts (
     password varchar(255),
     type varchar(255)
     );
+CREATE TABLE ssr_database.ssr_files (
+    dxc_ssr varchar(30),
+    name varchar(255),
+    size int(11),
+    downloads int(11)
+);
 #Insert sample data into tables
 INSERT INTO ssr_database.ssr_tracker VALUES (
     "dxcssr0001",
@@ -64,4 +70,9 @@ INSERT INTO ssr_database.ssr_accounts VALUES (
     "admin",
     "admin",
     "admin"
+);
+INSERT INTO ssr_database.ssr_accounts VALUES (
+    "user",
+    "user",
+    "user"
 );

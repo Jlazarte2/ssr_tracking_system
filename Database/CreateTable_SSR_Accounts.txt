@@ -1,0 +1,5 @@
+CREATE TABLE SSR_Accounts (
+    Employee_ID varchar(255),
+    Password varchar(255),
+    Type varchar(255)
+    );

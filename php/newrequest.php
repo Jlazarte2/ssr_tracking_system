@@ -47,11 +47,7 @@
         }
             if($query = mysqli_query($connections, "INSERT INTO ssr_tracker(description, usyd_no, priority, applicable, sre_name, prior, action_after, ssr_owner, exec_date, start_time, end_time, usyd_cat, dxc_cat, perform) 
             VALUES ('$description','$usyd_no','$priority','$applicable','$sre_name','$prior','$action_after','$ssr_owner','$exec_date','$start_time','$end_time','$usyd_cat','$dxc_cat','$perform')")){
-            echo "<script>
-            alert('New Request has been created!');
-            window.location.href='../newrequest.html';
-            </script>"; 
-            }
+
         
             
     
@@ -59,38 +55,43 @@
                         //IMPORTANT CHANGE THE FOLDER OF USYD_NO TO DXCSSR
             // Uploads files
         if (!$_POST['myfile']) {
+
             // Create Folder
             if (!file_exists('../uploads/' . $_POST['usyd_no'])) {
                 mkdir('../uploads/' . $_POST['usyd_no'], 0777, true);
             }
-            
-            $filename = $_FILES['myfile']['name'];
-            $destination = '../uploads/' . $_POST['usyd_no'] . '/' . $filename;
-            $extension = pathinfo($filename, PATHINFO_EXTENSION);
-            //temp
-            $file = $_FILES['myfile']['tmp_name'];
-            $size = $_FILES['myfile']['size'];
-            //size
-            if ($_FILES['myfile']['size'] > 10000000) {
-                echo "File too large!";
-            } 
-            else {
-               //temp to dest
-                if (move_uploaded_file($file, $destination)) {
-                    $sql = "INSERT INTO ssr_files (dxc_ssr, name, size, downloads) VALUES ('$usyd_no','$filename', $size, 0)";
-                    if (mysqli_query($connections, $sql)) {
-                        echo "File uploaded successfully";
-                    }
+           
+            $i = 0;
+            foreach ($_FILES['myfile']['name'] as $filename){
+                $destination = '../uploads/' . $_POST['usyd_no'] . '/' . $filename;
+                $extension = pathinfo($filename, PATHINFO_EXTENSION);
+                //temp
+                $file = $_FILES['myfile']['tmp_name'][$i];
+                $size = $_FILES['myfile']['size'][$i];
+                //size
+                if ($_FILES['myfile']['size'][$i] > 10000000) {
+                    echo "File too large!";
                 } 
                 else {
-                    echo "Failed to upload file.";
+                //temp to dest
+                    if (move_uploaded_file($file, $destination)) {
+                        $sql = "INSERT INTO ssr_files (dxc_ssr, name, size, downloads) VALUES ('$usyd_no','$filename', $size, 0)";
+                        if (mysqli_query($connections, $sql)) {
+                            echo "File uploaded successfully";
+                        }
+                    } 
+                    else {
+                        echo "Failed to upload file.";
+                    }
                 }
+                $i++;
             }
         }
-            echo "<script>
-            alert('New Request has been created!');
-            window.location.href='../newrequest.html';
-            </script>"; 
+        echo "<script>
+        alert('New Request has been created!');
+        window.location.href='../newrequest.html';
+        </script>"; 
+    }
     }
 
 ?>

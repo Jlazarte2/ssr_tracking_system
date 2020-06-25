@@ -1,6 +1,0 @@
-<DATABASE>
-Table: SSR_Accounts
-Columns:
-Employee_ID
-Password
-Type

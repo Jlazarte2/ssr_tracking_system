@@ -16,7 +16,7 @@
 
 ?>
 
-<form method="POST" action="confirmdelete.php">
+<form method="POST" action="./php/confirmdelete.php">
 
     <input type="hidden" name="employee_id" value="<?php echo $db_employee_id; ?>" ><br><br>
 

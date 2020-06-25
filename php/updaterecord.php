@@ -1,5 +1,5 @@
 <?php
-    include ("./php/connections.php");
+    include ("./connections.php");
 
     $usyd_no = $_POST["usyd_no"];
     $new_priority = $_POST["priority"];

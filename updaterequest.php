@@ -22,7 +22,7 @@
     }
 ?>
 
-<form method="POST" action="updaterecord.php" enctype="multipart/form-data">
+<form method="POST" action="./php/updaterecord.php" enctype="multipart/form-data">
     <h1>SSR Request Details</h1><br>
     <label for="subject">Import a file:</label>
     <input type="file" name="myfile"><br>

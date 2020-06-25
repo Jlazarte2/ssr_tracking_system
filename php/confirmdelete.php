@@ -1,6 +1,6 @@
 <?php
 
-    include ("./php/connections.php");
+    include ("./connections.php");
 
     $employee_id = $_POST["employee_id"];
 

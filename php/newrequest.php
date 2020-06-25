@@ -26,9 +26,6 @@
         if($_POST["ssr_owner"]){
             $ssr_owner = $_POST["ssr_owner"];
         }
-        if($_POST["sre_name"]){
-            $sre_name = $_POST["sre_name"];
-        }
         if($_POST["exec_date"]){
             $exec_date = $_POST["exec_date"];
         }

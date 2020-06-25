@@ -56,7 +56,6 @@
             <form method="post" action="searchrequest.php">
                 <input type="submit" name="clear" value="Clear">
             </form>
-            <button type="button" id="back" onclick="goBack()">back</button><br><br>
             <div class="container">
                 <table class="table table-hover">
                     <thead>

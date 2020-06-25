@@ -6,19 +6,22 @@
 
     $get_record = mysqli_query($connections, "SELECT * FROM ssr_tracker WHERE usyd_no='$usyd_no'");
 
-    while($row_edit = mysqli_fetch_assoc($get_record)){
-        //$db_subject = $row_edit["subject"];
-        $db_usyd_no = $row_edit["usyd_no"];
-        $db_priority = $row_edit["priority"];
-        $db_applicable = $row_edit["applicable"];
-        $db_sre_name = $row_edit["sre_name"];
-        $db_prior = $row_edit["prior"];
-        $db_ssr_owner = $row_edit["ssr_owner"];
-        $db_exec_date = $row_edit["exec_date"];
-        $db_start_time = $row_edit["start_time"];
-        $db_end_time = $row_edit["end_time"];
-        $db_usyd_cat = $row_edit["usyd_cat"];
-        $db_description = $row_edit["description"];
+    while($row = mysqli_fetch_assoc($get_record)){
+        $db_subject = $row["description"];
+        $db_action = $row["action_after"];
+        $db_perform = $row["perform"];
+
+        $db_usyd_no = $row["usyd_no"];
+        $db_priority = $row["priority"];
+        $db_applicable = $row["applicable"];
+        $db_sre_name = $row["sre_name"];
+        $db_prior = $row["prior"];
+        $db_ssr_owner = $row["ssr_owner"];
+        $db_exec_date = $row["exec_date"];
+        $db_start_time = $row["start_time"];
+        $db_end_time = $row["end_time"];
+        $db_usyd_cat = $row["usyd_cat"];
+        //$db_description = $row["description"];
     }
 ?>
 
@@ -28,7 +31,7 @@
     <input type="file" name="myfile"><br>
 
     <label for="subject">Subject:</label>
-    <input type="text" id="subject" name="subject"><br>
+    <input type="text" id="subject" name="subject" value="<?php echo $db_subject; ?>"><br>
 
     <label for="usyd_no">Usyd Service request reference:</label>
     <input type="text" id="usyd_no" name="usyd_no" value="<?php echo $db_usyd_no; ?>" required><br>
@@ -55,7 +58,7 @@
     <input type="text" id="prior" name="prior" value="<?php echo $db_prior; ?>" ><br>
 
     <label for="action">Actions to be done after this SSR:</label>
-    <input type="text" id="action" name="action"><br><br>
+    <input type="text" id="action" name="action" value="<?php echo $db_action; ?>"><br><br>
 
     <label for="ssr_owner">Service Request Owner:</label>
     <input type="text" id="ssr_owner" name="ssr_owner" value="<?php echo $db_ssr_owner; ?>" required><br><br>
@@ -90,7 +93,7 @@
     <b><label for="perform">Please perform the following steps on</label></b><br>
 
     <b><label for="description">Description:</label></b><br>
-    <textarea id="description" name="description" value="<?php echo $db_description; ?>" rows="30" cols="100"></textarea required><br><br>
+    <textarea id="description" name="description" value="<?php echo $db_perform; ?>" rows="30" cols="100"></textarea required><br><br>
     
     <button type="submit" id="update_request">Update Request</button><br>
 </form>

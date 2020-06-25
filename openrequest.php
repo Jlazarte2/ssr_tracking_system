@@ -49,7 +49,7 @@
             <label>Date: " . $row["exec_date"] ."</label><br>
             <label>Start time (24hr Time): " . $row["start_time"] ."</label><br>
             <label>End time (24hr Time): " . $row["end_time"] ."</label><br>
-            <label>Service Request Category: " . $row["ssr_owner"] ."</label><br><br>
+            <label>Service Request Category: " . $row["usyd_cat"] ."</label><br><br>
             <b><label>Please perform the following steps on</label></b><br>
             <b><label>Description: " . $row["perform"] ."</label></b><br><br><br>";
 

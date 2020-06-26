@@ -11,47 +11,15 @@
             $db_password = $row_delete["password"];
             $db_type = $row_delete["type"];
         }
+
+        echo "<h3>Are you sure you want to delete $db_employee_id ? </h3>";
+
 ?>
 
+<form method="POST" action="./php/confirmdelete.php">
 
+    <input type="hidden" name="employee_id" value="<?php echo $db_employee_id; ?>" ><br><br>
 
-<!DOCTYPE html>
-<html lang="en">
+    <input type="submit" value="Yes"> &nbsp; <a href='modifyuser.php'>No</a>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Request</title>
-    
-    <link rel="stylesheet" href="css/delete.css">
-</head>
-
-<body>
-
-    <div class="full-height">
-        <div class="p1-colorstrip">
-        </div>
-        <div class="p2">
-            <div class="logodiv">
-                <img class="logo1" src="images/logo1.png" alt="Usyd logo">
-            </div>
-            <div class="titlediv">
-                <h1 class="title">ATTENTION!</h1>
-            </div>
-        </div>
-        <div class="p3-content">
-            <p>Are you sure you want to delete $db_employee_id? </p>;
-            <form method="POST" action="./php/confirmdelete.php">
-
-                <input type="hidden" name="employee_id" value="<?php echo $db_employee_id; ?>" ><br><br>
-            
-                <input type="submit" value="Yes"> &nbsp;  <button type="submit" formaction="/modifyuser.php">No</button>
-            
-            </form>
-        </div>
-        <br>
-    </div>
-
-</body>
-</html>
+</form>

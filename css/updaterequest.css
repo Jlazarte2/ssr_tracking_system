@@ -13,6 +13,7 @@ html, body {
 .p2{
   height:20% ;
   box-sizing: border-box;
+
 }
 .logodiv{
   box-sizing: border-box;
@@ -38,7 +39,4 @@ html, body {
 }
 .p3-content{
     text-align: center;
-}
-.table, th, td {
-    border: 1px solid black;
 }

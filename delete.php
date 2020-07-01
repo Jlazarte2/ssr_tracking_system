@@ -41,7 +41,7 @@
             </div>
         </div>
         <div class="p3-content">
-            <p>Are you sure you want to delete $db_employee_id? </p>;
+            <p>Are you sure you want to delete <?php echo $employee_id; ?>? </p>
             <form method="POST" action="./php/confirmdelete.php">
 
                 <input type="hidden" name="employee_id" value="<?php echo $db_employee_id; ?>" ><br><br>

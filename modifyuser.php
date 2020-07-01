@@ -68,10 +68,10 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
+                                    <th>Option</th>
                                     <th>User ID</th>
                                     <th>Password</th>
                                     <th>User Type</th>
-                                    <th>Option</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -82,10 +82,11 @@
                                         $type = $row["type"];
                                 
                                         echo "<tr>
+                                                <td><a href='delete.php?employee_id=$employee_id'>Delete</a></td>
                                                 <td>$employee_id</td>
                                                 <td>$password</td>
                                                 <td>$type</td>
-                                                <td><a href='delete.php?employee_id=$employee_id'>Delete</a></td>
+                                                
                                             </tr>";
                                     }
                                 ?>

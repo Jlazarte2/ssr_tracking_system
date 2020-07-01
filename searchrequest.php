@@ -72,25 +72,28 @@
                                     <th>Usyd No</th>
                                     <th>SSR Owner</th>
                                     <th>SRE Name</th>
+                                    <th>USYD Category</th>
                                 </tr>
                             </thead>
                             <tbody>
         
                             <?php
                             while($row = mysqli_fetch_assoc($query)){
-                                $db_dxc_ssr = $row["dxc_ssr"];
                                 $db_date = $row["date"];
+                                $db_dxc_ssr = $row["dxc_ssr"];
                                 $db_usyd_no = $row["usyd_no"];
                                 $db_ssr_owner = $row["ssr_owner"];
                                 $db_sre_name = $row["sre_name"];
+                                $db_usyd_cat = $row["usyd_cat"];
         
                                     echo "<tr>
-                                        <td><a href='openrequest.php?dxcssr=$db_usyd_no'>Open</a> &nbsp <a href='updaterequest.php?usyd_no=$db_usyd_no'>Update</td>
+                                        <td><a href='openrequest.php?dxcssr=$db_usyd_no'>Open</a> &nbsp; <a href='updaterequest.php?usyd_no=$db_usyd_no'>Update</td>
                                         <td>$db_date</td>
                                         <td>$db_dxc_ssr</td>
                                         <td>$db_usyd_no</td>
                                         <td>$db_ssr_owner</td>
                                         <td>$db_sre_name</td>
+                                        <td>$db_usyd_cat</td>
                                         </tr>";
                                 }
                             ?>

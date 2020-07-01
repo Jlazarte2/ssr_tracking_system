@@ -21,7 +21,8 @@
         $db_start_time = $row["start_time"];
         $db_end_time = $row["end_time"];
         $db_usyd_cat = $row["usyd_cat"];
-        //$db_description = $row["description"];
+        $db_description = $row["description"];
+        $db_perform = $row["perform"];
     }
 ?>
 
@@ -64,10 +65,10 @@
             
                 <label for="priority">Usyd Priority:</label>
                 <select id="priority" name="priority" value="<?php echo $db_priority; ?>">
-                    <option value="p1">P1 - Critical</option>
-                    <option value="p2">P2 - High</option>
-                    <option value="p3">P3 - Moderate</option>
-                    <option selected="p4" value="p4">P4 - Low</option>
+                    <option value="p1" <?php if($db_priority=='p1'){echo "selected";} ?> >P1 - Critical</option>
+                    <option value="p2" <?php if($db_priority=='p2'){echo "selected";} ?> >P2 - High</option>
+                    <option value="p3" <?php if($db_priority=='p3'){echo "selected";} ?> >P3 - Moderate</option>
+                    <option value="p4" <?php if($db_priority=='p4'){echo "selected";} ?> >P4 - Low</option>
                 </select><br><br>
             
                 <b><label for="sequencing">Usyd Sequencing:</label></b><br>
@@ -100,26 +101,26 @@
                 <input type="time" id="end_time" name="end_time" value="<?php echo $db_end_time; ?>" required><br>
             
                 <label for="usyd_cat">Service Request Category: (Select the applicable category)</label>
-                <select id="usyd_cat" name="usyd_cat" value="<?php echo $db_usyd_cat; ?>" >
-                    <option value="asa">ASA Firewall</option>
-                    <option value="backup">Backup</option>
-                    <option value="oracle">Database Oracle</option>
-                    <option value="sql">Database SQL</option>
-                    <option value="f5">F5</option>
-                    <option value="msv">MSV CloudOps</option>
-                    <option value="nsx">NSX Firewall</option>
-                    <option value="aws">Public Aws CloudOps</option>
-                    <option value="azure">Public Azure CloudOps</option>
-                    <option value="storage">Storage Team</option>
-                    <option value="unix">Unix/Linux</option>
-                    <option value="vmware">VMWare</option>
-                    <option value="wintel">Wintel</option>
+                <select id="usyd_cat" name="usyd_cat" value="<?php echo $db_usyd_cat; ?>">
+                    <option value="asa" <?php if($db_usyd_cat=='asa'){echo "selected";} ?> >ASA Firewall</option>
+                    <option value="backup" <?php if($db_usyd_cat=='backup'){echo "selected";} ?> >Backup</option>
+                    <option value="oracle" <?php if($db_usyd_cat=='oracle'){echo "selected";} ?> >Database Oracle</option>
+                    <option value="sql" <?php if($db_usyd_cat=='sql'){echo "selected";} ?> >Database SQL</option>
+                    <option value="f5" <?php if($db_usyd_cat=='f5'){echo "selected";} ?> >F5</option>
+                    <option value="msv" <?php if($db_usyd_cat=='msv'){echo "selected";} ?> >MSV CloudOps</option>
+                    <option value="nsx" <?php if($db_usyd_cat=='nsx'){echo "selected";} ?> >NSX Firewall</option>
+                    <option value="aws" <?php if($db_usyd_cat=='aws'){echo "selected";} ?> >Public Aws CloudOps</option>
+                    <option value="azure" <?php if($db_usyd_cat=='azure'){echo "selected";} ?> >Public Azure CloudOps</option>
+                    <option value="storage" <?php if($db_usyd_cat=='storage'){echo "selected";} ?> >Storage Team</option>
+                    <option value="unix" <?php if($db_usyd_cat=='unix'){echo "selected";} ?> >Unix/Linux</option>
+                    <option value="vmware" <?php if($db_usyd_cat=='vmware'){echo "selected";} ?> >VMWare</option>
+                    <option value="wintel" <?php if($db_usyd_cat=='wintel'){echo "selected";} ?> >Wintel</option>
                 </select><br><br>
             
                 <b><label for="perform">Please perform the following steps on</label></b><br>
             
                 <b><label for="description">Description:</label></b><br>
-                <textarea id="description" name="description" value="<?php echo $db_perform; ?>" rows="30" cols="100"></textarea required><br><br>
+                <textarea id="description" name="description" rows="30" cols="100"><?php echo $db_perform; ?></textarea required><br><br>
                 
                 <button type="submit" id="update_request">Update Request</button><br>
             </form>

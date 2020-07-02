@@ -103,13 +103,16 @@
         if (!$_POST['myfile']) {
 
             // Create Folder
-            if (!file_exists('../uploads/' . $_POST['usyd_no'])) {
-                mkdir('../uploads/' . $_POST['usyd_no'], 0777, true);
+            $query = mysqli_query($connections, "SELECT * FROM ssr_tracker ORDER BY dxc_ssr DESC LIMIT 1;");
+            $row = mysqli_fetch_assoc($query);
+
+            if (!file_exists('../uploads/' . $row['dxc_ssr'])) {
+                mkdir('../uploads/' . $row['dxc_ssr'], 0777, true);
             }
            
             $i = 0;
             foreach ($_FILES['myfile']['name'] as $filename){
-                $destination = '../uploads/' . $_POST['usyd_no'] . '/' . $filename;
+                $destination = '../uploads/' . $row['dxc_ssr'] . '/' . $filename;
                 $extension = pathinfo($filename, PATHINFO_EXTENSION);
                 //temp
                 $file = $_FILES['myfile']['tmp_name'][$i];
@@ -121,7 +124,7 @@
                 else {
                 //temp to dest
                     if (move_uploaded_file($file, $destination)) {
-                        $sql = "INSERT INTO ssr_files (dxc_ssr, name, size, downloads) VALUES ('$usyd_no','$filename', $size, 0)";
+                        $sql = "INSERT INTO ssr_files (dxc_ssr, name, size, downloads) VALUES ('".$row['dxc_ssr']."','$filename', $size, 0)";
                         if (mysqli_query($connections, $sql)) {
                             echo "File uploaded successfully";
                         }

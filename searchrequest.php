@@ -85,7 +85,7 @@
                                 $db_sre_name = $row["sre_name"];
         
                                     echo "<tr>
-                                        <td><a href='openrequest.php?dxcssr=$db_usyd_no'>Open</a> &nbsp <a href='updaterequest.php?usyd_no=$db_usyd_no'>Update</td>
+                                        <td><a href='openrequest.php?dxcssr=$db_dxc_ssr'>Open</a> &nbsp <a href='updaterequest.php?dxcssr=$db_dxc_ssr'>Update</td>
                                         <td>$db_date</td>
                                         <td> DXCSSR$db_dxc_ssr</td>
                                         <td>$db_usyd_no</td>

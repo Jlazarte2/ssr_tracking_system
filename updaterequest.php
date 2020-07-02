@@ -1,10 +1,10 @@
 <?php
 
-    $usyd_no = $_REQUEST["usyd_no"];
+    $dxc_ssr = $_REQUEST["dxcssr"];
 
     include ("./php/connections.php");
 
-    $get_record = mysqli_query($connections, "SELECT * FROM ssr_tracker WHERE usyd_no='$usyd_no'");
+    $get_record = mysqli_query($connections, "SELECT * FROM ssr_tracker WHERE dxc_ssr='$dxc_ssr'");
 
     while($row = mysqli_fetch_assoc($get_record)){
         $db_subject = $row["description"];
@@ -62,6 +62,9 @@
             
                 <label for="usyd_no">Usyd Service request reference:</label>
                 <input type="text" id="usyd_no" name="usyd_no" value="<?php echo $db_usyd_no; ?>" required><br>
+
+                <label for="dxc_ssr">DXC SSR:</label>
+                <input type="text" id="dxc_ssr" name="dxc_ssr" value="<?php echo $dxc_ssr; ?>" required><br>
             
                 <label for="priority">Usyd Priority:</label>
                 <select id="priority" name="priority" value="<?php echo $db_priority; ?>">

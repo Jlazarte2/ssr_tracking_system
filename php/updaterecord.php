@@ -4,6 +4,7 @@
     $new_description = $_POST["subject"];
     $new_perform = $_POST["description"];
     $new_action = $_POST["action"];
+    $new_dxc_ssr = $_POST["dxc_ssr"];
 
     $usyd_no = $_POST["usyd_no"];
     $new_priority = $_POST["priority"];
@@ -23,7 +24,7 @@
         sre_name='$new_sre_name', prior='$new_prior', ssr_owner='$new_ssr_owner', exec_date='$new_exec_date',
         start_time='$new_start_time', end_time='$new_end_time', usyd_cat='$new_usyd_cat', description='$new_description',
         perform='$new_perform', action_after='$new_action' 
-        WHERE usyd_no='$usyd_no'");
+        WHERE dxc_ssr='$usyd_no'");
 
     echo "<script language='javascript'>alert('Record has been updated!')</script>";
     echo "<script>window.location.href='../searchrequest.php';</script>";    

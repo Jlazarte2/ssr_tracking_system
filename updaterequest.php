@@ -77,8 +77,8 @@
                 <b><label for="sequencing">Usyd Sequencing:</label></b><br>
                 <label for="applicable">Applicable (yes/no):</label>
                 <select id="applicable" name="applicable" value="<?php echo $db_applicable; ?>">
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
+                    <option value="yes" <?php if($db_applicable=='yes'){echo "selected";} ?> >Yes</option>
+                    <option value="no" <?php if($db_applicable=='no'){echo "selected";} ?> >No</option>
                 </select><br>
             
                 <label for="sre_name">Usyd Person responsible to coordinate:</label>

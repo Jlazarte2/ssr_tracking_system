@@ -142,5 +142,17 @@
         </script>"; 
     }
     }
+    $msg = "Hi, \n\nThis is acknowledged.\nThe DXC SSR no. for this request is";
+
+    //use wordwrap() if lines are longer than 70 characters
+    $msg = wordwrap($msg,70);
+    
+    // send email
+    //mail($dxc_contact,$description,$msg);
+    if(mail("arcedada@gmail.com",$description,$msg)){
+       echo "Email successfully sent to";
+    } else {
+        echo "Email sending failed...";
+      }    
 
 ?>

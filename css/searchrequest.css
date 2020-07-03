@@ -24,20 +24,29 @@ html, body {
   margin-left: 180px;
   height: 100%;
 }
+
 .titlediv{
-  box-sizing: border-box;
-  float: left;
-  text-align: center;
-  width: 100%;
-  height: 100%;
+box-sizing: border-box;
+float: left;
+text-align: center;
+width: 100%;
+height: 125%;
+
 }
 .title{
-    margin-top: 60px ;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: auto;
+height: 100%;
+font-family: 'Times New Roman', Times, serif;
+font-weight: bold;
 }
 .p3-content{
-    text-align: center;
+position: relative;
+top: -25px;
+box-sizing: border-box;
+text-align: center;
 }
 .table, th, td {
     border: 1px solid black;

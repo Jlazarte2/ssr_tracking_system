@@ -33,17 +33,17 @@ html, body {
   height: 125%;
 }
 .title{
-display: flex;
-justify-content: center;
-align-items: center;
-margin-top: auto;
-height: 100%;
-font-family: 'Times New Roman', Times, serif;
-font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  height: 100%;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
 }
 .p3-content{
-position: relative;
-top: -25px;
-box-sizing: border-box;
-text-align: center;
+  position: relative;
+  top: -25px;
+  box-sizing: border-box;
+  text-align: center;
 }

@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delete User</title>
     
-    <link rel="stylesheet" href="css/delete.css">
+    <link rel="stylesheet" href="css/content.css">
 </head>
 
 <body>

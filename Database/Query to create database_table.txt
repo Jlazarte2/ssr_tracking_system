@@ -49,6 +49,16 @@ CREATE TABLE ssr_database.ssr_files (
     downloads int(11)
 );
 
+#Create TABLE - ssr_snow 
+CREATE TABLE ssr_database.ssr_snow (
+    dxc_ssr varchar(30),
+    sys_id varchar(255),
+    number varchar(30),
+    state varchar(30),
+    PRIMARY KEY(dxc_ssr)
+);
+
+
 #Insert sample data ssr_accounts
 INSERT INTO ssr_database.ssr_accounts VALUES (
     "admin",

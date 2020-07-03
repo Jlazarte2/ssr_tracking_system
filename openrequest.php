@@ -1,7 +1,7 @@
 <?php
     if(isset($_GET['dxcssr'])){
         include ("./php/connections.php");
-        $query = mysqli_query($connections, "SELECT * FROM ssr_tracker WHERE usyd_no='" . $_GET['dxcssr'] . "';");
+        $query = mysqli_query($connections, "SELECT * FROM ssr_tracker WHERE dxc_ssr='" . $_GET['dxcssr'] . "';");
     }
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Request</title>
     
-    <link rel="stylesheet" href="css/openrequest.css">
+    <link rel="stylesheet" href="css/content.css">
 </head>
 
 <body>
@@ -61,7 +61,7 @@
         
                     $i = 1;
         
-                    $sql = "SELECT * FROM ssr_files WHERE dxc_ssr='$db_usyd_no'";
+                    $sql = "SELECT * FROM ssr_files WHERE dxc_ssr='$db_dxc_ssr'";
                         $result = mysqli_query($connections, $sql);
                         $files = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         echo"<label>Files:</label><br>";

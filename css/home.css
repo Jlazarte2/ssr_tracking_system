@@ -2,7 +2,6 @@ html, body {
   height: 100%;
   margin: auto;
 }
-
 .full-height {
   height: 100%;
 }
@@ -21,7 +20,6 @@ html, body {
   text-align: center;
   width: 30%;
   height: 100%;
-  
 }
 .logo1{
   margin-left: 100px;
@@ -29,14 +27,13 @@ html, body {
 }
 .navbar{
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
   float: left;
-  text-align: center;
   width: 70%;
   height: 100%;
- 
-}
-.menu{
-  margin-top: 80px;
 }
 .menu a{
   padding: 15px;

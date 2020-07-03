@@ -74,20 +74,43 @@
                                     <th>Usyd No</th>
                                     <th>SSR Owner</th>
                                     <th>SRE Name</th>
+                                    <th>Status</th>
+                                    <th>Change Number</th>
+                                    <th>Change Created</th>
+                                    <th>Prior to this SSR</th>
+                                    <th>Usyd Category</th>
                                     <th>DXC Category</th>
+                                    <th>DXC SSR Contact</th>
+                                    <th>Priority</th>
+                                    <th>DXC Date of Execution</th>
+                                    <th>DXC Date of Completion</th>
+                                    <th>Age</th>
+                                    <th>Remarks</th>
+                                    <th>Description</th>
                                 </tr>
                             </thead>
                             <tbody>
         
                             <?php
                             while($row = mysqli_fetch_assoc($query)){
-                                $db_dxc_ssr = $row["dxc_ssr"];
                                 $db_date = $row["date"];
+                                $db_dxc_ssr = $row["dxc_ssr"];
                                 $db_usyd_no = $row["usyd_no"];
                                 $db_ssr_owner = $row["ssr_owner"];
                                 $db_sre_name = $row["sre_name"];
+                                $db_status = $row["status"];
+                                $db_change_no = $row["change_no"];
+                                $db_change_created = $row["change_created"];
+                                $db_prior = $row["prior"];
+                                $db_usyd_cat = $row["usyd_cat"];
                                 $db_dxc_cat = $row["dxc_cat"];
-        
+                                $db_dxc_contact = $row["dxc_contact"];
+                                $db_priority = $row["priority"];
+                                $db_dateof_exec = $row["dateof_exec"];
+                                $db_dateof_completion = $row["dateof_completion"];
+                                $db_age = $row["age"];
+                                $db_remarks = $row["remarks"];
+                                $db_description = $row["description"];
                                     echo "<tr>
                                         <td><a href='openrequest.php?dxcssr=$db_dxc_ssr'>Open</a> &nbsp <a href='updaterequest.php?dxcssr=$db_dxc_ssr'>Update</td>
                                         <td>$db_date</td>
@@ -95,7 +118,19 @@
                                         <td>$db_usyd_no</td>
                                         <td>$db_ssr_owner</td>
                                         <td>$db_sre_name</td>
+                                        <td>$db_status</td>
+                                        <td>$db_change_no</td>
+                                        <td>$db_change_created</td>
+                                        <td>$db_prior</td>
+                                        <td>$db_usyd_cat</td>
                                         <td>$db_dxc_cat</td>
+                                        <td>$db_dxc_contact</td>
+                                        <td>$db_priority</td>
+                                        <td>$db_dateof_exec</td>
+                                        <td>$db_dateof_completion</td>
+                                        <td>$db_age</td>
+                                        <td>$db_remarks</td>
+                                        <td>$db_description</td>
                                         </tr>";
                                 }
                             ?>

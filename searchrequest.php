@@ -58,9 +58,11 @@
                         <label for="Sdxcssr_no">Search RITM No.</label>
                         <input type="text" id="Sdxcssr_no" name="search" value="<?php echo $check; ?>" required>
                         <input type="submit" value="search">
+                        <button type="button" id="back" onclick="goBack()">Back</button>
+                        <input type="submit" name="clear" value="Clear">
                     </form>
                     <form method="post" action="searchrequest.php">
-                        <input type="submit" name="clear" value="Clear">
+                       
                     </form>
                     <div class="container">
                         <table class="table table-hover">
@@ -72,6 +74,7 @@
                                     <th>Usyd No</th>
                                     <th>SSR Owner</th>
                                     <th>SRE Name</th>
+                                    <th>DXC Category</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -83,6 +86,7 @@
                                 $db_usyd_no = $row["usyd_no"];
                                 $db_ssr_owner = $row["ssr_owner"];
                                 $db_sre_name = $row["sre_name"];
+                                $db_dxc_cat = $row["dxc_cat"];
         
                                     echo "<tr>
                                         <td><a href='openrequest.php?dxcssr=$db_dxc_ssr'>Open</a> &nbsp <a href='updaterequest.php?dxcssr=$db_dxc_ssr'>Update</td>
@@ -91,6 +95,7 @@
                                         <td>$db_usyd_no</td>
                                         <td>$db_ssr_owner</td>
                                         <td>$db_sre_name</td>
+                                        <td>$db_dxc_cat</td>
                                         </tr>";
                                 }
                             ?>

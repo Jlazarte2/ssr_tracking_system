@@ -163,31 +163,7 @@
     $risk = $priority;
     $sdescription = $dxc_ssr . " - " . $usyd_no . " - " . $description;
     $time = "2020-06-14 06:22:29";
-    echo "<script src='./normalpost.js'></script>";
+    echo "<script type='text/javascript' src='./normalpost.js'></script>
+            <script type='text/javascript'>normalpost($category,$priority,$risk,$sdescription,$start_time,$end_time,$dxc_ssr)</script>";
 
-    ?>
-    <script> 
-        var requestBody = "{\"category\":\"" + <?php $category ?> + "\",\"priority\":\"" + <?php $priority ?> + "\",\"risk\":\"" + <?php $risk ?> + "\",\"short_description\":\"" + <?php $sdescription ?> +
-            "\",\"start_date\":\"" + <?php $time ?> + "\",\"end_date\":\"" + <?php $time ?> + "\"}";
-
-        var client = new XMLHttpRequest();
-        client.open("post", "https://dev93193.service-now.com/api/sn_chg_rest/change/normal");
-
-        client.setRequestHeader('Accept', 'application/json');
-        client.setRequestHeader('Content-Type', 'application/json');
-
-        //Eg. UserName="admin", Password="admin" for this code sample.
-        client.setRequestHeader('Authorization', 'Basic ' + btoa('admin' + ':' + '!QAZxsw2#EDCvfr4'));
-
-        client.onreadystatechange = function() {
-            if (this.readyState == this.DONE) {
-                //document.getElementById("response").innerHTML = this.status + this.response;
-                var res = this.response;
-                parsedData = JSON.parse(res);
-                window.location.href = "./normalpost.php?dxcssr=" + dxcssr + "&sys_id=" + parsedData.result.sys_id.value + "&number=" + parsedData.result.number.value + "&state=draft";
-                //return [dxcssr, parsedData.result.sys_id.value, parsedData.result.number.value, "draft"];
-                alert('New Ticket has been created!');
-            }
-        };
-        client.send(requestBody);
-    </script>
+?>

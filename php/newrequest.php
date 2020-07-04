@@ -106,6 +106,8 @@
             $query = mysqli_query($connections, "SELECT * FROM ssr_tracker ORDER BY dxc_ssr DESC LIMIT 1;");
             $row = mysqli_fetch_assoc($query);
 
+            $dxc_ssr = $row['dxc_ssr'];
+
             if (!file_exists('../uploads/' . $row['dxc_ssr'])) {
                 mkdir('../uploads/' . $row['dxc_ssr'], 0777, true);
             }
@@ -142,6 +144,7 @@
         </script>"; 
     }
     }
+
     $msg = "Hi, \n\nThis is acknowledged.\nThe DXC SSR no. for this request is";
 
     //use wordwrap() if lines are longer than 70 characters
@@ -154,5 +157,12 @@
     } else {
         echo "Email sending failed...";
       }    
+
+          //SNOW CREATION
+    $category = "Software";
+    $risk = $priority;
+    $sdescription = $dxc_ssr . " - " . $usyd_no . " - " . $description;
+    echo "<script src='./normalpost.js'></script>";
+    echo "<script>normalpost($category,$priority,$risk,$sdescription,$start_time,$end_time,$dxc_ssr)</script>"
 
 ?>

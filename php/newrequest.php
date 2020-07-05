@@ -1,5 +1,6 @@
 <?php
     include ("./connections.php");
+    session_start();
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         if($_POST["subject"]){
@@ -106,6 +107,8 @@
             $query = mysqli_query($connections, "SELECT * FROM ssr_tracker ORDER BY dxc_ssr DESC LIMIT 1;");
             $row = mysqli_fetch_assoc($query);
 
+            $dxc_ssr = $row['dxc_ssr'];
+
             if (!file_exists('../uploads/' . $row['dxc_ssr'])) {
                 mkdir('../uploads/' . $row['dxc_ssr'], 0777, true);
             }
@@ -136,12 +139,25 @@
                 $i++;
             }
         }
+                  //SNOW CREATION
+                
+                $category = "Software";
+                $risk = $priority;
+                $sdescription = $dxc_ssr . " - " . $usyd_no . " - " . $description;
+                $time = "2020-06-14 06:22:29";
+                $_SESSION['category'] = $category;
+                $_SESSION['priority'] = $priority;
+                $_SESSION['risk'] = $risk;
+                $_SESSION['sdescription'] = $sdescription;
+                $_SESSION['time'] = $time;
+                $_SESSION['dxcssr'] = $dxc_ssr;
         echo "<script>
         alert('New Request has been created!');
-        window.location.href='../newrequest.html';
+        window.location.href='./normal.php';
         </script>"; 
     }
     }
+
     $msg = "Hi, \n\nThis is acknowledged.\nThe DXC SSR no. for this request is";
 
     //use wordwrap() if lines are longer than 70 characters
@@ -154,5 +170,7 @@
     } else {
         echo "Email sending failed...";
       }    
+
+
 
 ?>

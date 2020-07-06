@@ -129,7 +129,6 @@
                     if (move_uploaded_file($file, $destination)) {
                         $sql = "INSERT INTO ssr_files (dxc_ssr, name, size, downloads) VALUES ('".$row['dxc_ssr']."','$filename', $size, 0)";
                         if (mysqli_query($connections, $sql)) {
-                            echo "File uploaded successfully";
                         }
                     } 
                     else {

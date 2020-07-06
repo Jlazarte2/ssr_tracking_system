@@ -19,7 +19,6 @@ function normalpost(category, priority, risk, sdescription, start, end, dxcssr) 
             parsedData = JSON.parse(res);
             window.location.href = "./normalpost.php?dxcssr=" + dxcssr + "&sys_id=" + parsedData.result.sys_id.value + "&number=" + parsedData.result.number.value + "&state=draft";
             //return [dxcssr, parsedData.result.sys_id.value, parsedData.result.number.value, "draft"];
-            alert('New Ticket has been created!');
         }
     };
     client.send(requestBody);

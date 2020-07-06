@@ -12,7 +12,7 @@ if($query = mysqli_query($connections, "INSERT INTO ssr_snow(dxc_ssr, sys_id, nu
             VALUES ('$dxcssr','$sys_id','$number','$state')")){
                 echo "<script>
                 alert('New Request has been made. $number has been created!');
-                window.location.href='./normalpost.html';
+                window.location.href='../admin.html';
                 </script>"; 
             }
 

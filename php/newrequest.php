@@ -1,5 +1,6 @@
 <?php
     include ("./connections.php");
+    session_start();
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         if($_POST["subject"]){
@@ -106,6 +107,8 @@
             $query = mysqli_query($connections, "SELECT * FROM ssr_tracker ORDER BY dxc_ssr DESC LIMIT 1;");
             $row = mysqli_fetch_assoc($query);
 
+            $dxc_ssr = $row['dxc_ssr'];
+
             if (!file_exists('../uploads/' . $row['dxc_ssr'])) {
                 mkdir('../uploads/' . $row['dxc_ssr'], 0777, true);
             }
@@ -126,7 +129,6 @@
                     if (move_uploaded_file($file, $destination)) {
                         $sql = "INSERT INTO ssr_files (dxc_ssr, name, size, downloads) VALUES ('".$row['dxc_ssr']."','$filename', $size, 0)";
                         if (mysqli_query($connections, $sql)) {
-                            echo "File uploaded successfully";
                         }
                     } 
                     else {
@@ -136,22 +138,11 @@
                 $i++;
             }
         }
-        echo "<script>
-        alert('New Request has been created!');
-        window.location.href='../newrequest.html';
-        </script>"; 
-    }
-    }
-    
-    $db = "SELECT * FROM ssr_tracker";
-    $query = mysqli_query($connections, $db);
-
-    while($row = mysqli_fetch_assoc($query)){
-        $db_dxc_ssr = $row["dxc_ssr"];
+                 
     }
     
 
-    $msg = "Hi, \n\nThis is acknowledged.\nThe DXC SSR no. for this request is DXCSSR" .$db_dxc_ssr. "\n\nRegards, \nDXC SSR Triage Team";
+    $msg = "Hi, \n\nThis is acknowledged.\nThe DXC SSR no. for this request is";
 
     //use wordwrap() if lines are longer than 70 characters
     $msg = wordwrap($msg,70);
@@ -162,6 +153,24 @@
        echo "Email successfully sent to";
     } else {
         echo "Email sending failed...";
-      }    
+      }
+      
+      
 
+       //SNOW CREATION
+                
+       $category = "Software";
+       $risk = $priority;
+       $sdescription = $dxc_ssr . " - " . $usyd_no . " - " . $description;
+       $time = "2020-06-14 06:22:29";
+       $_SESSION['category'] = $category;
+       $_SESSION['priority'] = $priority;
+       $_SESSION['risk'] = $risk;
+       $_SESSION['sdescription'] = $sdescription;
+       $_SESSION['time'] = $time;
+       $_SESSION['dxcssr'] = $dxc_ssr;
+       //header("Location: ../newrequest.html");
+       header("Location: ./normal.php");
+
+    }
 ?>

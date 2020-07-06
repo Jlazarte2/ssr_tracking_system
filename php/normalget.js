@@ -15,7 +15,7 @@ function normalget(sys_id) {
             //document.getElementById("response").innerHTML = this.status + this.response;
             var res = this.response;
             parsedData = JSON.parse(res);
-            window.location.href = "./normalget.php?sys_id=" + sys_id + "&state=" + parsedData.result.state.display_value;
+            //window.location.href = "./normalget.php?sys_id=" + sys_id + "&state=" + parsedData.result.state.display_value;
             //return [dxcssr, parsedData.result.sys_id.value, parsedData.result.number.value, "draft"];
         }
     };

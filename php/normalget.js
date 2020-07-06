@@ -16,7 +16,20 @@ function normalget(sys_id) {
             var res = this.response;
             parsedData = JSON.parse(res);
 
-            return parsedData.result.state.display_value;
+
+
+            var state = parsedData.result.state.display_value;
+
+            var sendData = function() {
+                $.post('ajax.php', {
+                    data: state
+                }, function(response) {
+                    console.log(response);
+                });
+            }
+            sendData();
+
+            //return parsedData.result.state.display_value;
             //window.location.href = "./normalget.php?sys_id=" + sys_id + "&state=" + parsedData.result.state.display_value;
             //return [dxcssr, parsedData.result.sys_id.value, parsedData.result.number.value, "draft"];
         }

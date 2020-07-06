@@ -28,7 +28,7 @@ CREATE TABLE ssr_database.ssr_tracker (
     end_time varchar(255),
     perform longtext,
     PRIMARY KEY(dxc_ssr)
-);
+    );
 
 #Changing the starting value for the AUTO_INCREMENT of dxc_ssr
 #ALTER TABLE ssr_database.ssr_tracker AUTO_INCREMENT = 50;
@@ -47,16 +47,17 @@ CREATE TABLE ssr_database.ssr_files (
     name varchar(255),
     size int(11),
     downloads int(11)
-);
+    );
 
 #Create TABLE - ssr_snow 
 CREATE TABLE ssr_database.ssr_snow (
-    dxc_ssr varchar(30),
     sys_id varchar(255),
-    number varchar(30),
+    change_number varchar(30),
     state varchar(30),
-    PRIMARY KEY(dxc_ssr)
-);
+    dxc_ssr int(5) ZEROFILL NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (sys_id),
+    FOREIGN KEY (dxc_ssr) REFERENCES ssr_tracker(dxc_ssr)
+    );
 
 
 #Insert sample data ssr_accounts
@@ -64,9 +65,9 @@ INSERT INTO ssr_database.ssr_accounts VALUES (
     "admin",
     "admin",
     "admin"
-);
+    );
 INSERT INTO ssr_database.ssr_accounts VALUES (
     "user",
     "user",
     "user"
-);
+    );

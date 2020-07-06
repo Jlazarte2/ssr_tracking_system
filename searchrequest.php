@@ -64,8 +64,8 @@
                     <form method="post" action="searchrequest.php">
                        
                     </form>
-                    <div class="container">
-                        <table class="table table-hover">
+                    <div class="table-scroll">
+                        <table class="main-table">
                             <thead>
                                 <tr>
                                     <th>Open Request</th>
@@ -112,25 +112,25 @@
                                 $db_remarks = $row["remarks"];
                                 $db_description = $row["description"];
                                     echo "<tr>
-                                        <td><a href='openrequest.php?dxcssr=$db_dxc_ssr'>Open</a> &nbsp <a href='updaterequest.php?dxcssr=$db_dxc_ssr'>Update</td>
-                                        <td>$db_date</td>
-                                        <td> DXCSSR$db_dxc_ssr</td>
-                                        <td>$db_usyd_no</td>
-                                        <td>$db_ssr_owner</td>
-                                        <td>$db_sre_name</td>
-                                        <td>$db_status</td>
-                                        <td>$db_change_no</td>
-                                        <td>$db_change_created</td>
-                                        <td>$db_prior</td>
-                                        <td>$db_usyd_cat</td>
-                                        <td>$db_dxc_cat</td>
-                                        <td>$db_dxc_contact</td>
-                                        <td>$db_priority</td>
-                                        <td>$db_dateof_exec</td>
-                                        <td>$db_dateof_completion</td>
-                                        <td>$db_age</td>
-                                        <td>$db_remarks</td>
-                                        <td>$db_description</td>
+                                        <th><a href='openrequest.php?dxcssr=$db_dxc_ssr'>Open</a> &nbsp <a href='updaterequest.php?dxcssr=$db_dxc_ssr'>Update</th>
+                                        <th>$db_date</th>
+                                        <th> DXCSSR$db_dxc_ssr</th>
+                                        <th>$db_usyd_no</th>
+                                        <th>$db_ssr_owner</th>
+                                        <th>$db_sre_name</th>
+                                        <th>$db_status</th>
+                                        <th>$db_change_no</th>
+                                        <th>$db_change_created</th>
+                                        <th>$db_prior</th>
+                                        <th>$db_usyd_cat</th>
+                                        <th>$db_dxc_cat</th>
+                                        <th>$db_dxc_contact</th>
+                                        <th>$db_priority</th>
+                                        <th>$db_dateof_exec</th>
+                                        <th>$db_dateof_completion</th>
+                                        <th>$db_age</th>
+                                        <th>$db_remarks</th>
+                                        <th>$db_description</th>
                                         </tr>";
                                 }
                             ?>

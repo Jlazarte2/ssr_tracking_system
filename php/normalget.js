@@ -20,14 +20,15 @@ function normalget(sys_id) {
 
             var state = parsedData.result.state.display_value;
 
-            var sendData = function() {
-                $.post('ajax.php', {
-                    data: state
-                }, function(response) {
-                    console.log(response);
-                });
-            }
-            sendData();
+            $.ajax({
+                url: 'normalget.php',
+                type: 'post',
+                data: { state: state, id: sys_id },
+                success: function(response) {
+                    //do whatever.
+                }
+            });
+
 
             //return parsedData.result.state.display_value;
             //window.location.href = "./normalget.php?sys_id=" + sys_id + "&state=" + parsedData.result.state.display_value;

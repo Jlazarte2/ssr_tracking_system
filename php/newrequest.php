@@ -139,24 +139,9 @@
                 $i++;
             }
         }
-                  //SNOW CREATION
-                
-                $category = "Software";
-                $risk = $priority;
-                $sdescription = $dxc_ssr . " - " . $usyd_no . " - " . $description;
-                $time = "2020-06-14 06:22:29";
-                $_SESSION['category'] = $category;
-                $_SESSION['priority'] = $priority;
-                $_SESSION['risk'] = $risk;
-                $_SESSION['sdescription'] = $sdescription;
-                $_SESSION['time'] = $time;
-                $_SESSION['dxcssr'] = $dxc_ssr;
-        echo "<script>
-        alert('New Request has been created!');
-        window.location.href='./normal.php';
-        </script>"; 
+                 
     }
-    }
+    
 
     $msg = "Hi, \n\nThis is acknowledged.\nThe DXC SSR no. for this request is";
 
@@ -169,8 +154,48 @@
        echo "Email successfully sent to";
     } else {
         echo "Email sending failed...";
-      }    
+      }
+      
+      
 
+       //SNOW CREATION
+                
+       $category = "Software";
+       $risk = $priority;
+       $sdescription = $dxc_ssr . " - " . $usyd_no . " - " . $description;
+       $time = "2020-06-14 06:22:29";
+       $_SESSION['category'] = $category;
+       $_SESSION['priority'] = $priority;
+       $_SESSION['risk'] = $risk;
+       $_SESSION['sdescription'] = $sdescription;
+       $_SESSION['time'] = $time;
+       $_SESSION['dxcssr'] = $dxc_ssr;
 
-
+    }
 ?>
+<script>
+var requestBody = "{\"category\":\"" + $category + "\",\"priority\":\"" + $priority + "\",\"risk\":\"" + $risk + "\",\"short_description\":\"" + $sdescription +
+    "\",\"start_date\":\"" + $time + "\",\"end_date\":\"" + $time + "\"}";
+
+var client = new XMLHttpRequest();
+client.open("post", "https://dev93193.service-now.com/api/sn_chg_rest/change/normal");
+
+client.setRequestHeader('Accept', 'application/json');
+client.setRequestHeader('Content-Type', 'application/json');
+
+//Eg. UserName="admin", Password="admin" for this code sample.
+client.setRequestHeader('Authorization', 'Basic ' + btoa('admin' + ':' + '!QAZxsw2#EDCvfr4'));
+
+client.onreadystatechange = function() {
+    if (this.readyState == this.DONE) {
+        //document.getElementById("response").innerHTML = this.status + this.response;
+        var res = this.response;
+        parsedData = JSON.parse(res);
+        window.location.href = "./normalpost.php?dxcssr=" + $dxcssr + "&sys_id=" + parsedData.result.sys_id.value + "&number=" + parsedData.result.number.value + "&state=draft";
+        //return [dxcssr, parsedData.result.sys_id.value, parsedData.result.number.value, "draft"];
+        alert('New Ticket has been created!');
+    }
+};
+client.send(requestBody);
+
+</script>

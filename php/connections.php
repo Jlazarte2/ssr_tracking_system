@@ -1,5 +1,5 @@
 <?php
-    //$servername = "localhost";
+    //$servername = "usyd1.czgixbvgrqdc.us-east-2.rds.amazonaws.com";
     //$username = "admin";
     //$password = "usydadmin";
     $servername = "localhost";

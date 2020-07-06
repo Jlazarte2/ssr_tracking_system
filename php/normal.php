@@ -10,9 +10,7 @@ $dxc_ssr = $_SESSION['dxcssr'];
 
 echo "<script src='./normalpost.js'></script>
         <html>
-        <body onload='normalpost($category,
-        $priority, $risk, $sdescription,
-        $time, $time, $dxc_ssr'>
+        <body>
 
 
         <input type='button' value='Submit' onclick='normalpost($category,

@@ -21,10 +21,14 @@
         }
         else{
             $check = "";
-            $query = mysqli_query($connections, "SELECT * FROM ssr_tracker");
+            // $query = mysqli_query($connections, "SELECT * FROM ssr_tracker");
+            $query = mysqli_query($connections, "SELECT ssr_tracker.date, ssr_tracker.dxc_ssr, ssr_tracker.dxc_ssr, ssr_tracker.usyd_no, ssr_tracker.ssr_owner, ssr_tracker.sre_name, ssr_tracker.change_created, ssr_tracker.prior, ssr_tracker.usyd_cat, 
+                                                ssr_tracker.dxc_cat, ssr_tracker.dxc_contact, ssr_tracker.priority, ssr_tracker.dateof_exec, ssr_tracker.dateof_completion, ssr_tracker.age, ssr_tracker.remarks, ssr_tracker.description, 
+                                                ssr_snow.state, ssr_snow.change_number
+                                                FROM ssr_tracker
+                                                JOIN ssr_snow ON ssr_tracker.dxc_ssr=ssr_snow.dxc_ssr
+                                                ORDER BY ssr_tracker.dxc_ssr");
         }
-
-        
 ?>
 
 <!DOCTYPE html>
@@ -98,8 +102,8 @@
                                 $db_usyd_no = $row["usyd_no"];
                                 $db_ssr_owner = $row["ssr_owner"];
                                 $db_sre_name = $row["sre_name"];
-                                $db_status = $row["status"];
-                                $db_change_no = $row["change_no"];
+                                $db_status = $row["state"];
+                                $db_change_no = $row["change_number"];
                                 $db_change_created = $row["change_created"];
                                 $db_prior = $row["prior"];
                                 $db_usyd_cat = $row["usyd_cat"];

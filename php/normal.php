@@ -13,6 +13,11 @@ echo "<script src='./normalpost.js'></script>
         <body onload='normalpost($category,
         $priority, $risk, $sdescription,
         $time, $time, $dxc_ssr'>
+
+
+        <input type='button' value='Submit' onclick='normalpost($category,
+        $priority, $risk, $sdescription,
+        $time, $time, $dxc_ssr'>
         
 
         </body>

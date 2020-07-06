@@ -170,8 +170,8 @@
        $_SESSION['sdescription'] = $sdescription;
        $_SESSION['time'] = $time;
        $_SESSION['dxcssr'] = $dxc_ssr;
-       header("Location: ../newrequest.html");
-       //header("Location: ./normal.php");
+       //header("Location: ../newrequest.html");
+       header("Location: ./normal.php");
 
     }
 ?>

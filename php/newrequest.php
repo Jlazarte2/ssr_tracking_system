@@ -174,8 +174,15 @@
     }
 ?>
 <script>
-var requestBody = "{\"category\":\"" + $category + "\",\"priority\":\"" + $priority + "\",\"risk\":\"" + $risk + "\",\"short_description\":\"" + $sdescription +
-    "\",\"start_date\":\"" + $time + "\",\"end_date\":\"" + $time + "\"}";
+var category = <?php echo $category ?>;
+var priority = <?php echo $priority ?>;
+var risk = <?php echo $risk ?>;
+var sdescription = <?php echo $sdescription ?>;
+var time = <?php echo $time ?>;
+var dxcssr = <?php echo $dxc_ssr ?>;
+
+var requestBody = "{\"category\":\"" + category + "\",\"priority\":\"" + priority + "\",\"risk\":\"" + risk + "\",\"short_description\":\"" + sdescription +
+    "\",\"start_date\":\"" + time + "\",\"end_date\":\"" + time + "\"}";
 
 var client = new XMLHttpRequest();
 client.open("post", "https://dev93193.service-now.com/api/sn_chg_rest/change/normal");
@@ -191,7 +198,7 @@ client.onreadystatechange = function() {
         //document.getElementById("response").innerHTML = this.status + this.response;
         var res = this.response;
         parsedData = JSON.parse(res);
-        window.location.href = "./normalpost.php?dxcssr=" + $dxcssr + "&sys_id=" + parsedData.result.sys_id.value + "&number=" + parsedData.result.number.value + "&state=draft";
+        window.location.href = "./normalpost.php?dxcssr=" + dxc_ssr + "&sys_id=" + parsedData.result.sys_id.value + "&number=" + parsedData.result.number.value + "&state=draft";
         //return [dxcssr, parsedData.result.sys_id.value, parsedData.result.number.value, "draft"];
         alert('New Ticket has been created!');
     }

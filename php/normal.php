@@ -22,3 +22,15 @@ $dxc_ssr = $_SESSION['dxcssr'];
 </body>
 
 </html>
+
+
+<?php
+include ("./connections.php");
+
+$query = mysqli_query($connections, "SELECT * FROM ssr_tracker ORDER BY dxc_ssr DESC LIMIT 1;");
+$row = mysqli_fetch_assoc($query);
+
+$dxc_ssr = $row['dxc_ssr'];
+    $query = mysqli_query($connections, "INSERT INTO ssr_snow(sys_id, change_number, state, dxc_ssr) 
+    VALUES ('','','','$dxc_ssr')");
+?>

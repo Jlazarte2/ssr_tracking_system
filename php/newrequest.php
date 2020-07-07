@@ -141,21 +141,35 @@
                  
     }
     
+    $email = 'arcedada@gmail.com';
+    require 'PHPMailer/PHPMailerAutoload.php';
+    $mail = new PHPMailer;
+    $mail->IsSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'tmann7080@gmail.com';
+    $mail->Password = 'pusa@1234';
+    $mail->SMTPSecure = 'tsl';
+    $mail->Port = 587;
+    $mail->From = 'SSR Triage Team';
+    $mail->FromName = 'DXC';
+    $mail->addAddress($email);
 
-    $msg = "Hi, \n\nThis is acknowledged.\nThe DXC SSR no. for this request is";
+    $mail->isHTML(true);
+    $m1 = "Hi, <br>";
+    $m2 = "<br>This is acknowledge. <br>";
+    $m3 = "The DXC SSR No. for this request is <b>DXCSSR$dxc_ssr</b>";
+    $message = $m1.$m2.$m2;
+    $mail->Subject = $description;
+    $mail->Body = $message;
 
-    //use wordwrap() if lines are longer than 70 characters
-    $msg = wordwrap($msg,70);
-    
-    // send email
-    //mail($dxc_contact,$description,$msg);
-    if(mail("arcedada@gmail.com",$description,$msg)){
-       echo "Email successfully sent to";
-    } else {
-        echo "Email sending failed...";
-      }
-      
-      
+    if(!$mail->send()){
+        echo 'Messaeg could not be sent.';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+    }else{
+        echo 'Successful.';
+    }
+           
 
        //SNOW CREATION
                 

@@ -175,14 +175,14 @@
                 
        $category = "Software";
        $risk = $priority;
-       $sdescription = $dxc_ssr . " - " . $usyd_no . " - " . $description;
+       $_SESSION['dxcssr'] = $dxc_ssr;
+       $_SESSION['sdescription'] = "DXCSSR" . $dxc_ssr . " - " . $usyd_no . " - " . $description;
        $time = "2020-06-14 06:22:29";
        $_SESSION['category'] = $category;
        $_SESSION['priority'] = $priority;
        $_SESSION['risk'] = $risk;
        $_SESSION['start_time'] = $exec_date . " " . $start_time;
        $_SESSION['end_time'] = $exec_date . " " . $end_time;
-       $_SESSION['dxcssr'] = "DXCSSR" . $dxc_ssr;
        //header("Location: ../newrequest.html");
        header("Location: ./normal.php");
 

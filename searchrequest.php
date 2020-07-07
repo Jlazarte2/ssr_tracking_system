@@ -102,7 +102,8 @@
                                 $db_usyd_no = $row["usyd_no"];
                                 $db_ssr_owner = $row["ssr_owner"];
                                 $db_sre_name = $row["sre_name"];
-                                $db_status = $row["state"];
+                                $db_status = $row["status"];
+                                $db_state = $row["state"];
                                 $db_change_no = $row["change_number"];
                                 $db_change_created = $row["change_created"];
                                 $db_prior = $row["prior"];
@@ -123,6 +124,7 @@
                                         <th>$db_ssr_owner</th>
                                         <th>$db_sre_name</th>
                                         <th>$db_status</th>
+                                        <th>$db_state</th>
                                         <th>$db_change_no</th>
                                         <th>$db_change_created</th>
                                         <th>$db_prior</th>

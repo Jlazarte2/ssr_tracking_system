@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <script src="./normalpost.js"></script>
+    <script src="./normalget.js"></script>
 </head>
 
 
@@ -17,10 +17,6 @@ include ("./connections.php");
     echo "<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>";
     while($row = mysqli_fetch_assoc($query)){
         $sys_id = $row["sys_id"];
-        //$dxcssr = "19";
-        echo "<script>
-                alert('$sys_id');
-                </script>";
         echo "<script type='text/javascript'normalget($sys_id)</script>";
 
                  
@@ -31,6 +27,13 @@ include ("./connections.php");
                 </script>";
                 
 ?>
+
+
+<body onload="normalpost('<?php echo $category ?>',
+    '<?php echo $priority ?>', '<?php echo $category ?>', '<?php echo $sdescription ?>',
+    '<?php echo $time ?>', '<?php echo $time ?>', '<?php echo $dxc_ssr ?>')">
+
+</body>
 
 
 </html>

@@ -27,6 +27,25 @@
         WHERE dxc_ssr='$usyd_no'");
 
     echo "<script language='javascript'>alert('Record has been updated!')</script>";
-    echo "<script>window.location.href='../searchrequest.php';</script>";    
+    echo "<script>window.location.href='../searchrequest.php';</script>";
+    
+    $email = 'arcedada@gmail.com';
+    require 'PHPMailer/PHPMailerAutoload.php';
+    $mail = new PHPMailer;
+    $mail->IsSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'tmann7080@gmail.com';
+    $mail->Password = 'pusa@1234';
+    $mail->SMTPSecure = 'tsl';
+    $mail->Port = 587;
+    $mail->From = 'SSR Triage Team';
+    $mail->FromName = 'DXC';
+    $mail->addAddress($email);
+
+    $mail->isHTML(true);
+    $message = "Hi, <br>Request has been updated for the <b>DXCSSR$new_dxc_ssr</b>";
+    $mail->Subject = $description;
+    $mail->Body = $message;
 
 ?>

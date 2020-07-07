@@ -17,7 +17,7 @@ function normalpost(category, priority, risk, sdescription, start, end, dxcssr) 
             //document.getElementById("response").innerHTML = this.status + this.response;
             var res = this.response;
             parsedData = JSON.parse(res);
-            window.location.href = "./normalpost.php?dxcssr=" + dxcssr + "&sys_id=" + parsedData.result.sys_id.value + "&number=" + parsedData.result.number.value + "&state=draft";
+            window.location.href = "./normalpost.php?dxcssr=" + dxcssr + "&sys_id=" + parsedData.result.sys_id.value + "&number=" + parsedData.result.number.value + "&state=New";
             //return [dxcssr, parsedData.result.sys_id.value, parsedData.result.number.value, "draft"];
         }
     };

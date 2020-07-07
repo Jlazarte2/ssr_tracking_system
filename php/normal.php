@@ -5,7 +5,8 @@ $category = $_SESSION['category'];
 $priority = $_SESSION['priority'];
 $risk = $_SESSION['risk'];
 $sdescription = $_SESSION['sdescription'];
-$time = $_SESSION['time'];
+$start_time = $_SESSION['start_time'];
+$end_time = $_SESSION['end_time'];
 $dxc_ssr = $_SESSION['dxcssr'];
 ?>
 <script src='./normalpost.js'></script>
@@ -17,7 +18,7 @@ $dxc_ssr = $_SESSION['dxcssr'];
 
 <body onload="normalpost('<?php echo $category ?>',
     '<?php echo $priority ?>', '<?php echo $category ?>', '<?php echo $sdescription ?>',
-    '<?php echo $time ?>', '<?php echo $time ?>', '<?php echo $dxc_ssr ?>')">
+    '<?php echo $start_time ?>', '<?php echo $end_time ?>', '<?php echo $dxc_ssr ?>')">
 
 </body>
 

@@ -180,9 +180,9 @@
        $_SESSION['category'] = $category;
        $_SESSION['priority'] = $priority;
        $_SESSION['risk'] = $risk;
-       $_SESSION['sdescription'] = $sdescription;
-       $_SESSION['time'] = $time;
-       $_SESSION['dxcssr'] = $dxc_ssr;
+       $_SESSION['start_time'] = $exec_date . " " . $start_time;
+       $_SESSION['end_time'] = $exec_date . " " . $end_time;
+       $_SESSION['dxcssr'] = "DXCSSR" . $dxc_ssr;
        //header("Location: ../newrequest.html");
        header("Location: ./normal.php");
 

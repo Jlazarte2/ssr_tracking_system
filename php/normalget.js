@@ -1,3 +1,5 @@
+src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js";
+
 function normalget(sys_id) {
     var requestBody = "";
 
@@ -18,14 +20,16 @@ function normalget(sys_id) {
 
 
 
-            var state = parsedData.result.state.display_value;
+            var states = parsedData.result.state.display_value;
+            alert(states);
 
             $.ajax({
-                url: 'normalget.php',
-                type: 'post',
-                data: { state: state, id: sys_id },
+                url: './normalget.php',
+                type: 'POST',
+                data: { 'state': states, 'sys_id': sys_id },
                 success: function(response) {
-                    //do whatever.
+                    //do whatever
+                    alert("BOOM");
                 }
             });
 

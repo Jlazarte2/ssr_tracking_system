@@ -21,7 +21,6 @@ function normalget(sys_id) {
 
 
             var states = parsedData.result.state.display_value;
-            alert(states);
 
             $.ajax({
                 url: './normalget.php',
@@ -29,7 +28,6 @@ function normalget(sys_id) {
                 data: { 'state': states, 'sys_id': sys_id },
                 success: function(response) {
                     //do whatever
-                    alert("BOOM");
                 }
             });
 

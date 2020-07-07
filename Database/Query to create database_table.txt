@@ -55,7 +55,7 @@ CREATE TABLE ssr_database.ssr_snow (
     change_number varchar(30),
     state varchar(30),
     dxc_ssr int(5) ZEROFILL NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY (sys_id),
+    PRIMARY KEY (dxc_ssr),
     FOREIGN KEY (dxc_ssr) REFERENCES ssr_tracker(dxc_ssr)
     );
 

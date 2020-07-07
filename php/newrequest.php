@@ -159,7 +159,7 @@
     $m1 = "Hi, <br>";
     $m2 = "<br>This is acknowledge. <br>";
     $m3 = "The DXC SSR No. for this request is <b>DXCSSR$dxc_ssr</b>";
-    $message = $m1.$m2.$m2;
+    $message = $m1.$m2.$m3;
     $mail->Subject = $description;
     $mail->Body = $message;
 

@@ -141,7 +141,7 @@
                  
     }
     
-    $email = 'arcedada@gmail.com';
+    // $email = 'arcedada@gmail.com';
     require 'PHPMailer/PHPMailerAutoload.php';
     $mail = new PHPMailer;
     $mail->IsSMTP();

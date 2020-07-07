@@ -23,7 +23,7 @@
             $check = "";
             // $query = mysqli_query($connections, "SELECT * FROM ssr_tracker");
             $query = mysqli_query($connections, "SELECT ssr_tracker.date, ssr_tracker.dxc_ssr, ssr_tracker.dxc_ssr, ssr_tracker.usyd_no, ssr_tracker.ssr_owner, ssr_tracker.sre_name, ssr_tracker.change_created, ssr_tracker.prior, ssr_tracker.usyd_cat, 
-                                                ssr_tracker.dxc_cat, ssr_tracker.dxc_contact, ssr_tracker.priority, ssr_tracker.dateof_exec, ssr_tracker.dateof_completion, ssr_tracker.age, ssr_tracker.remarks, ssr_tracker.description, 
+                                                ssr_tracker.dxc_cat, ssr_tracker.dxc_contact, ssr_tracker.priority, ssr_tracker.dateof_exec, ssr_tracker.dateof_completion, ssr_tracker.age, ssr_tracker.remarks, ssr_tracker.description, ssr_tracker.status, 
                                                 ssr_snow.state, ssr_snow.change_number
                                                 FROM ssr_tracker
                                                 JOIN ssr_snow ON ssr_tracker.dxc_ssr=ssr_snow.dxc_ssr
@@ -124,7 +124,6 @@
                                         <th>$db_ssr_owner</th>
                                         <th>$db_sre_name</th>
                                         <th>$db_status</th>
-                                        <th>$db_state</th>
                                         <th>$db_change_no</th>
                                         <th>$db_change_created</th>
                                         <th>$db_prior</th>

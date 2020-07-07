@@ -94,103 +94,83 @@
         }
         
         
-        if($query = mysqli_query($connections, "INSERT INTO ssr_tracker(description, usyd_no, priority, applicable, sre_name, prior, action_after, ssr_owner, exec_date, start_time, end_time, usyd_cat, dxc_cat, perform, date, status, dxc_contact) 
+            if($query = mysqli_query($connections, "INSERT INTO ssr_tracker(description, usyd_no, priority, applicable, sre_name, prior, action_after, ssr_owner, exec_date, start_time, end_time, usyd_cat, dxc_cat, perform, date, status, dxc_contact) 
             VALUES ('$description','$usyd_no','$priority','$applicable','$sre_name','$prior','$action_after','$ssr_owner','$exec_date','$start_time','$end_time','$usyd_cat','$dxc_cat','$perform', '$date', '$status', '$dxc_contact')")){
 
 
-            //IMPORTANT CHANGE THE FOLDER OF USYD_NO TO DXCSSR
+
+                        //IMPORTANT CHANGE THE FOLDER OF USYD_NO TO DXCSSR
             // Uploads files
-            if (!$_POST['myfile']) {
+        if (!$_POST['myfile']) {
 
-                // Create Folder
-                $query = mysqli_query($connections, "SELECT * FROM ssr_tracker ORDER BY dxc_ssr DESC LIMIT 1;");
-                $row = mysqli_fetch_assoc($query);
+            // Create Folder
+            $query = mysqli_query($connections, "SELECT * FROM ssr_tracker ORDER BY dxc_ssr DESC LIMIT 1;");
+            $row = mysqli_fetch_assoc($query);
 
-                $dxc_ssr = $row['dxc_ssr'];
+            $dxc_ssr = $row['dxc_ssr'];
 
-                if (!file_exists('../uploads/' . $row['dxc_ssr'])) {
-                    mkdir('../uploads/' . $row['dxc_ssr'], 0777, true);
-                }
-            
-                $i = 0;
-                foreach ($_FILES['myfile']['name'] as $filename){
-                    $destination = '../uploads/' . $row['dxc_ssr'] . '/' . $filename;
-                    $extension = pathinfo($filename, PATHINFO_EXTENSION);
-                    //temp
-                    $file = $_FILES['myfile']['tmp_name'][$i];
-                    $size = $_FILES['myfile']['size'][$i];
-                    //size
-                    if ($_FILES['myfile']['size'][$i] > 10000000) {
-                        echo "File too large!";
+            if (!file_exists('../uploads/' . $row['dxc_ssr'])) {
+                mkdir('../uploads/' . $row['dxc_ssr'], 0777, true);
+            }
+           
+            $i = 0;
+            foreach ($_FILES['myfile']['name'] as $filename){
+                $destination = '../uploads/' . $row['dxc_ssr'] . '/' . $filename;
+                $extension = pathinfo($filename, PATHINFO_EXTENSION);
+                //temp
+                $file = $_FILES['myfile']['tmp_name'][$i];
+                $size = $_FILES['myfile']['size'][$i];
+                //size
+                if ($_FILES['myfile']['size'][$i] > 10000000) {
+                    echo "File too large!";
+                } 
+                else {
+                //temp to dest
+                    if (move_uploaded_file($file, $destination)) {
+                        $sql = "INSERT INTO ssr_files (dxc_ssr, name, size, downloads) VALUES ('".$row['dxc_ssr']."','$filename', $size, 0)";
+                        if (mysqli_query($connections, $sql)) {
+                        }
                     } 
                     else {
-                    //temp to dest
-                        if (move_uploaded_file($file, $destination)) {
-                            $sql = "INSERT INTO ssr_files (dxc_ssr, name, size, downloads) VALUES ('".$row['dxc_ssr']."','$filename', $size, 0)";
-                            if (mysqli_query($connections, $sql)) {
-                            }
-                        } 
-                        else {
-                            echo "Failed to upload file.";
-                        }
+                        echo "Failed to upload file.";
                     }
-                    $i++;
                 }
-            }                 
+                $i++;
+            }
         }
-        
-        $email = 'jbernal3@dxc.com';
-        require 'PHPMailer/PHPMailerAutoload.php';
-        $mail = new PHPMailer;
-        $mail->IsSMTP();
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'tmann7080@gmail.com';
-        $mail->Password = 'pusa@1234';
-        $mail->SMTPSecure = 'tsl';
-        $mail->Port = 587;
-        $mail->From = 'SSR Triage Team';
-        $mail->FromName = 'DXC';
-        $mail->addAddress($email);
+                 
+    }
+    
 
-        $mail->isHTML(true);
-        $message = "Hi, Pakitest po to sa AWS kung gumagana pag hindi local \r\nThis is the DXC SSR no. for this request: DXCSSR$dxc_ssr ";
-        $mail->Subject = 'DXC Acknowledgement';
-        $mail->Body = $message;
+    $msg = "Hi, \n\nThis is acknowledged.\nThe DXC SSR no. for this request is";
 
-        if(!$mail->send()){
-            echo 'Messaeg could not be sent.';
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
-        }else{
-            echo 'Successful.';
-        }
+    //use wordwrap() if lines are longer than 70 characters
+    $msg = wordwrap($msg,70);
+    
+    // send email
+    //mail($dxc_contact,$description,$msg);
+    if(mail("arcedada@gmail.com",$description,$msg)){
+       echo "Email successfully sent to";
+    } else {
+        echo "Email sending failed...";
+      }
+      
+      
 
-        // $msg = "Hi, \n\nThis is acknowledged.\nThe DXC SSR no. for this request is";
-
-        // //use wordwrap() if lines are longer than 70 characters
-        // $msg = wordwrap($msg,70);
-        
-        // // send email
-        // //mail($dxc_contact,$description,$msg);
-        // if(mail("arcedada@gmail.com",$description,$msg)){
-        //     echo "Email successfully sent to";
-        // } else {
-        //     echo "Email sending failed...";
-        // }
-
-        //SNOW CREATION              
-        $category = "Software";
-        $risk = $priority;
-        $sdescription = $dxc_ssr . " - " . $usyd_no . " - " . $description;
-        $time = "2020-06-14 06:22:29";
-        $_SESSION['category'] = $category;
-        $_SESSION['priority'] = $priority;
-        $_SESSION['risk'] = $risk;
-        $_SESSION['sdescription'] = $sdescription;
-        $_SESSION['time'] = $time;
-        $_SESSION['dxcssr'] = $dxc_ssr;
-        //header("Location: ../newrequest.html");
-        header("Location: ./normal.php");
+       //SNOW CREATION
+                
+       $category = "Software";
+       $risk = $priority;
+       $sdescription = $dxc_ssr . " - " . $usyd_no . " - " . $description;
+       $time = "2020-06-14 06:22:29";
+       $_SESSION['category'] = $category;
+       $_SESSION['priority'] = $priority;
+       $_SESSION['risk'] = $risk;
+       $_SESSION['sdescription'] = $sdescription;
+       $_SESSION['time'] = $time;
+       $_SESSION['dxcssr'] = $dxc_ssr;
+       //header("Location: ../newrequest.html");
+       header("Location: ./normal.php");
 
     }
 ?>

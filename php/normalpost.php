@@ -15,8 +15,8 @@ $query = mysqli_query($connections, "SELECT * FROM ssr_tracker WHERE dxc_ssr='$d
 if($query = mysqli_query($connections, "INSERT INTO ssr_snow(dxc_ssr, sys_id, number, state) 
             VALUES ('$dxcssr','$sys_id','$number','$state')")){
 
-            //$email = 'darce2@dxc.com';
-            $email = 'jlazarte2@dxc.com';
+            $email = 'darce2@dxc.com';
+            //$email = 'jlazarte2@dxc.com';
             require 'PHPMailer/PHPMailerAutoload.php';
             $mail = new PHPMailer;
             $mail->IsSMTP();
@@ -33,11 +33,11 @@ if($query = mysqli_query($connections, "INSERT INTO ssr_snow(dxc_ssr, sys_id, nu
             
 
             $mail->isHTML(true);
-            $m1 = "Hi, <br>";
-            $m2 = "<br>This is acknowledge. <br>";
-            $m3 = "The DXC SSR No. for this request is <b>DXCSSR$dxcssr</b><br>";
-            $m4 = "The change no. in SNOW is" . $number . "And in " . $state . "state.<br>";
-            $m5 = "The Subject is <b>" . $description . "</b></br>;";
+            $m1 = "Hi, <br><br>";
+            $m2 = "This is acknowledge. <br>";
+            $m3 = "The DXC SSR No. for this request is <b>DXCSSR$dxcssr</b><br><br>";
+            $m4 = "The change no. in SNOW is " . "<b>$number</b>" . " and in " . "<b>$state</b>" . " state.<br><br>";
+            $m5 = "Regards, <br> SSR Triage Team <br> DXC Technology";
             $message = $m1.$m2.$m3.$m4.$m5;
             $mail->Subject = $description;
             $mail->Body = $message;

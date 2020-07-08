@@ -10,6 +10,10 @@ $state = $_POST['state'];
     $dxcssr = $row['dxc_ssr'];
     $number = $row['number'];
 
+    $query = mysqli_query($connections, "SELECT * FROM ssr_tracker WHERE dxc_ssr='$dxcssr';");
+    $row = mysqli_fetch_assoc($query);
+    $description = $row['description'];
+
     //email
     //$email = 'darce2@dxc.com';
     $email = 'jlazarte2@dxc.com';
@@ -32,10 +36,11 @@ $state = $_POST['state'];
                 WHERE sys_id='$sys_id'")){
 
                     //Insert NEW UPDATE Email Script here
-                    $m1 = "Hi, <br>";
-                    $m2 = "<br>This is an email for UPDATE for <b>DXCSSR$dxcssr</b><. <br>"; //CHANGE SENTENCE
-                    $m3 = "The change no. in SNOW " . $number . "is NOW in<b> " . $state . "</b>state FROM " . $old_state .  ".<br>";
-                    $message = $m1.$m2.$m3;
+                    $m1 = "Hello  Team, <br><br>";
+                    $m2 = "This is to update the request <b>DXCSSR$dxcssr</b>.<br><br>";
+                    $m3 = "The change no. in SNOW is " . "<b>$number</b>" . " is now in<b> " . "<b>$state</b" . " state. <br><br>";
+                    $m4 = "Regards, <br> SSR Triage Team <br> DXC Technology";
+                    $message = $m1.$m2.$m3.$m4;
                     $mail->Subject = $description;
                     $mail->Body = $message;
 

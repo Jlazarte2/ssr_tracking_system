@@ -20,7 +20,7 @@ include ("./connections.php");
         echo "<script type='text/javascript'>normalget('$sys_id')</script>";
     }
         echo "<script>alert('Tickets are now updated')</script>";
-    header( "refresh:2; url=../searchrequest.php");
+    header( "refresh:5; url=../searchrequest.php");
     
 ?>
 </html>

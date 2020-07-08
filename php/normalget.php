@@ -10,9 +10,9 @@ $state = $_POST['state'];
     $dxcssr = $row['dxc_ssr'];
     $number = $row['number'];
 
-    $query = mysqli_query($connections, "SELECT * FROM ssr_tracker WHERE dxc_ssr='$dxcssr';");
-    $row = mysqli_fetch_assoc($query);
-    $description = $row['description'];
+    $query2 = mysqli_query($connections, "SELECT * FROM ssr_tracker WHERE dxc_ssr='$dxcssr';");
+    $row2 = mysqli_fetch_assoc($query2);
+    $description = $row2['description'];
 
     //email
     //$email = 'darce2@dxc.com';

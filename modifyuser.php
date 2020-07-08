@@ -59,12 +59,12 @@
                         <input type="text" id="Sdxcssr_no" name="search" value="<?php echo $check; ?>" required>
                         <input type="submit" value="search">
                     </form>
+                    <br>
                     <form method="post" action="modifyuser.php">
                         <input type="submit" name="clear" value="Clear">
+                        <button type="button" id="back" onclick="goBack()">back</button><br><br>
                     </form>
-                 <!--
-                    <button type="button" id="back" onclick="goBack()">back</button><br><br>
-                 -->  
+            
                     <br>
                     <div class="container">
                         <table class="table table-hover">
@@ -102,10 +102,11 @@
                     <label for="password">Password:</label>
                     <input type="text" id="password" name="password">
                     <label for="type">Type:</label>
-                    <input type="text" id="type" name="type"><br>
+                    <input type="text" id="type" name="type"><br><br>
                     <button type="submit" id="create_user" id="create_user" formaction="./php/create_user.php">Create User</button>
                     <button type="submit" id="update" id="update" formaction="./php/update_user.php">Update</button><br>
                 </form>
+                <br>
                 <button type="button" id="back" onclick="goBack()">back</button>
             </div>
         </div>

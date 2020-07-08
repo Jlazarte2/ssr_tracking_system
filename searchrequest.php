@@ -22,12 +22,13 @@
         else{
             $check = "";
             // $query = mysqli_query($connections, "SELECT * FROM ssr_tracker");
-            $query = mysqli_query($connections, "SELECT ssr_tracker.date, ssr_tracker.dxc_ssr, ssr_tracker.dxc_ssr, ssr_tracker.usyd_no, ssr_tracker.ssr_owner, ssr_tracker.sre_name, ssr_tracker.change_created, ssr_tracker.prior, ssr_tracker.usyd_cat, 
-                                                ssr_tracker.dxc_cat, ssr_tracker.dxc_contact, ssr_tracker.priority, ssr_tracker.dateof_exec, ssr_tracker.dateof_completion, ssr_tracker.age, ssr_tracker.remarks, ssr_tracker.description, ssr_tracker.status, 
-                                                ssr_snow.state, ssr_snow.change_number
-                                                FROM ssr_tracker
-                                                JOIN ssr_snow ON ssr_tracker.dxc_ssr=ssr_snow.dxc_ssr
-                                                ORDER BY ssr_tracker.dxc_ssr");
+            //$query = mysqli_query($connections, "SELECT ssr_tracker.date, ssr_tracker.dxc_ssr, ssr_tracker.dxc_ssr, ssr_tracker.usyd_no, ssr_tracker.ssr_owner, ssr_tracker.sre_name, ssr_tracker.change_created, ssr_tracker.prior, ssr_tracker.usyd_cat, 
+            //                                    ssr_tracker.dxc_cat, ssr_tracker.dxc_contact, ssr_tracker.priority, ssr_tracker.dateof_exec, ssr_tracker.dateof_completion, ssr_tracker.age, ssr_tracker.remarks, ssr_tracker.description, ssr_tracker.status, 
+            //                                    ssr_snow.state, ssr_snow.change_number
+            //                                    FROM ssr_tracker
+            //                                    JOIN ssr_snow ON ssr_tracker.dxc_ssr=ssr_snow.dxc_ssr
+            //                                    ORDER BY ssr_tracker.dxc_ssr");
+            $query = mysqli_query($connections, "SELECT * FROM ssr_tracker;");
         }
 ?>
 
@@ -80,7 +81,7 @@
                                     <th>SRE Name</th>
                                     <th>Status</th>
                                     <th>Change Number</th>
-                                    <th>Change Created</th>
+                                    <th>State</th>
                                     <th>Prior to this SSR</th>
                                     <th>Usyd Category</th>
                                     <th>DXC Category</th>
@@ -103,8 +104,9 @@
                                 $db_ssr_owner = $row["ssr_owner"];
                                 $db_sre_name = $row["sre_name"];
                                 $db_status = $row["status"];
-                                $db_state = $row["state"];
-                                $db_change_no = $row["change_number"];
+                                //$db_state = $row["state"];
+                                $db_change_no = $row["change_no"];
+                                //$db_change_no = $row["change_number"];
                                 $db_change_created = $row["change_created"];
                                 $db_prior = $row["prior"];
                                 $db_usyd_cat = $row["usyd_cat"];
@@ -116,16 +118,21 @@
                                 $db_age = $row["age"];
                                 $db_remarks = $row["remarks"];
                                 $db_description = $row["description"];
+
+                                $query2 = mysqli_query($connections, "SELECT * FROM ssr_snow WHERE dxc_ssr=$db_dxc_ssr;");
+                                $row2 = mysqli_fetch_assoc($query2);
+                                $db_state = $row2["state"];
+                                $db_change_no = $row2["number"];
                                     echo "<tr>
-                                        <th><a href='openrequest.php?dxcssr=$db_dxc_ssr'>Open</a> &nbsp <a href='updaterequest.php?dxcssr=$db_dxc_ssr'>Update</th>
+                                        <th><a href='openrequest.php?dxcssr=$db_dxc_ssr'>Open</a></th>
                                         <th>$db_date</th>
-                                        <th> DXCSSR$db_dxc_ssr</th>
+                                        <th>DXCSSR$db_dxc_ssr</th>
                                         <th>$db_usyd_no</th>
                                         <th>$db_ssr_owner</th>
                                         <th>$db_sre_name</th>
                                         <th>$db_status</th>
                                         <th>$db_change_no</th>
-                                        <th>$db_change_created</th>
+                                        <th>$db_state</th>
                                         <th>$db_prior</th>
                                         <th>$db_usyd_cat</th>
                                         <th>$db_dxc_cat</th>

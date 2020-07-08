@@ -120,9 +120,15 @@
                                 $db_description = $row["description"];
 
                                 $query2 = mysqli_query($connections, "SELECT * FROM ssr_snow WHERE dxc_ssr=$db_dxc_ssr;");
+                                if (mysqli_num_rows($query2)!=0){
                                 $row2 = mysqli_fetch_assoc($query2);
                                 $db_state = $row2["state"];
                                 $db_change_no = $row2["number"];
+                                }
+                                else{
+                                    $db_state = "";
+                                    $db_change_no = "";
+                                }
                                     echo "<tr>
                                         <th><a href='openrequest.php?dxcssr=$db_dxc_ssr'>Open</a></th>
                                         <th>$db_date</th>

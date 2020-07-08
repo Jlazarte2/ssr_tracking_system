@@ -54,7 +54,6 @@ CREATE TABLE ssr_database.ssr_snow (
     sys_id varchar(255),
     number varchar(30),
     state varchar(30),
-    dxc_ssr int(5) ZEROFILL NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (dxc_ssr)
     );
 

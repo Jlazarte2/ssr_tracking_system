@@ -38,7 +38,7 @@ $state = $_POST['state'];
                     //Insert NEW UPDATE Email Script here
                     $m1 = "Hello  Team, <br><br>";
                     $m2 = "This is to update the request <b>DXCSSR$dxcssr</b>.<br><br>";
-                    $m3 = "The change no. in SNOW is " . "<b>$number</b>" . " is now in<b> " . "<b>$state</b>" . " state. <br><br>";
+                    $m3 = "The change no. in SNOW is " . "<b>$number</b>" . " is now in " . "<b>$state</b>" . " state. <br><br>";
                     $m4 = "Regards, <br> SSR Triage Team <br> DXC Technology";
                     $message = $m1.$m2.$m3.$m4;
                     $mail->Subject = $description;

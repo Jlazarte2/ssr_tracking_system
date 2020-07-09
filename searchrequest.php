@@ -87,10 +87,6 @@
                                     <th>DXC Category</th>
                                     <th>DXC SSR Contact</th>
                                     <th>Priority</th>
-                                    <th>DXC Date of Execution</th>
-                                    <th>DXC Date of Completion</th>
-                                    <th>Age</th>
-                                    <th>Remarks</th>
                                     <th>Description</th>
                                 </tr>
                             </thead>
@@ -144,10 +140,6 @@
                                         <th>$db_dxc_cat</th>
                                         <th>$db_dxc_contact</th>
                                         <th>$db_priority</th>
-                                        <th>$db_dateof_exec</th>
-                                        <th>$db_dateof_completion</th>
-                                        <th>$db_age</th>
-                                        <th>$db_remarks</th>
                                         <th>$db_description</th>
                                         </tr>";
                                 }

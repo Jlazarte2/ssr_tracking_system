@@ -50,7 +50,7 @@
         $date = date('Y-m-d H:i:s');
 
         //status of request
-        $status = 'For change creation';
+        $status = '';
         
         //dxc_contact - PDLs
         if($usyd_cat === "asa"){
